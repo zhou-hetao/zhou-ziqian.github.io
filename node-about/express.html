@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>Express内容 | 周贺涛的博客</title>
+  <meta name="description" content="快速进入 Nodejs + express案例 Express 介绍  Express 是一个基于 Node.js 平台，快速、开放、极简的 web 开发框架。 它可以轻松构建各种web应用，例如：        接口服务        传统的web网站        开发工具集成等（例如webpack的devServer）  Express本身是极简的，仅仅提供了web开发的基础功能，但是它通过">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Express内容">
+<meta property="og:url" content="http://example.com/node-about/express.html">
+<meta property="og:site_name" content="周贺涛的博客">
+<meta property="og:description" content="快速进入 Nodejs + express案例 Express 介绍  Express 是一个基于 Node.js 平台，快速、开放、极简的 web 开发框架。 它可以轻松构建各种web应用，例如：        接口服务        传统的web网站        开发工具集成等（例如webpack的devServer）  Express本身是极简的，仅仅提供了web开发的基础功能，但是它通过">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-09-16T07:33:03.826Z">
+<meta property="article:modified_time" content="2022-09-16T07:33:03.826Z">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://example.com/node-about/express.html">
+  
+    <link rel="alternate" href="/atom.xml" title="周贺涛的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">河南老表</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">周贺涛的博客</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> 中国</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验! 本博客技术范围大致为WEB前端</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+
+    
+      
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled ">
+        
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2022/11/04/hello-world/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/11/04/hello-world/" class="title">欢迎来到我的博客</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-11-04T10:44:47.302Z" itemprop="datePublished">2022-11-04</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="page-" class="article article-type-page" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Express内容
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/node-about/express.html" class="article-date">
+	  <time datetime="2022-09-16T07:33:03.826Z" itemprop="datePublished">2022-09-16</time>
+	</a>
+</span>
+        
+        
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/node-about/express.html#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h3 id="快速进入"><a href="#快速进入" class="headerlink" title="快速进入"></a>快速进入</h3><p> <a href="/node-about/node-case">Nodejs + express案例</a></p>
+<h3 id="Express-介绍"><a href="#Express-介绍" class="headerlink" title="Express 介绍"></a>Express 介绍</h3><p>  Express 是一个基于 Node.js 平台，快速、开放、极简的 web 开发框架。 它可以轻松构建各种web应用，例如：<br>        接口服务<br>        传统的web网站<br>        开发工具集成等（例如webpack的devServer）</p>
+<p> Express本身是极简的，仅仅提供了web开发的基础功能，但是它通过中间件的方式集成了许许多多的外部插件来处理HTTP请求。<br>            body-parser：解析HTTP请求体<br>            compression：压缩HTTP响应<br>            cookie-parser：解析cookie 数据<br>            cors：处理跨域资源请求<br>            morgan：HTTP请求日志记录</p>
+<p> Express中间件的特性固然强大，但是它所提供的灵活性是一把双刃剑。<br>        它让Express本身变得更加灵活和简单<br>        缺点在于虽然有一些中间件包可以解决几乎所有问题或需求，但是挑选合适的包有时也会成为一个挑战<br>        有很多流行框架基于 Express<br>        <a target="_blank" rel="noopener" href="https://www.expressjs.com.cn/4x/api.html">Express 官网 </a></p>
+<h3 id="express-安装"><a href="#express-安装" class="headerlink" title="express 安装"></a>express 安装</h3><p> 参考文档：<a target="_blank" rel="noopener" href="http://expressjs.com/en/starter/installing.html">http://expressjs.com/en/starter/installing.html</a><br> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment"># 创建并切换到 myapp 目录</span></span><br><span class="line"><span class="built_in">mkdir</span> myapp</span><br><span class="line"><span class="built_in">cd</span> myapp</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化 package.json 文件</span></span><br><span class="line">npm init -y</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装 express 到项目中</span></span><br><span class="line">npm i express</span><br></pre></td></tr></table></figure></p>
+<h4 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h4> <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 0. 加载 Express</span></span><br><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&quot;express&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1. 调用 express() 得到一个 app</span></span><br><span class="line"><span class="comment">//    类似于 http.createServer()</span></span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">express</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 设置请求对应的处理函数</span></span><br><span class="line"><span class="comment">//    当客户端以 GET 方法请求 / 的时候就会调用第二个参数：请求处理函数</span></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&quot;/&quot;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  res.<span class="title function_">send</span>(<span class="string">&quot;hello world&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 监听端口号，启动 Web 服务</span></span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">3000</span>, <span class="function">() =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;app listening on port 3000!&quot;</span>));</span><br></pre></td></tr></table></figure>
+
+<h3 id="基本路由"><a href="#基本路由" class="headerlink" title="基本路由"></a>基本路由</h3><p>参考文档：<a target="_blank" rel="noopener" href="http://expressjs.com/en/starter/basic-routing.html">http://expressjs.com/en/starter/basic-routing.html</a></p>
+<p>路由（Routing）是由一个 URI（或者叫路径标识）和一个特定的 HTTP 方法（GET、POST 等）组成的，涉及到应用如何处理响应客户端请求。</p>
+<p>每一个路由都可以有一个或者多个处理器函数，当匹配到路由时，这个&#x2F;些函数将被执行。</p>
+<p>路由的定义的结构如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.<span class="title function_">METHOD</span>(<span class="variable constant_">PATH</span>, <span class="variable constant_">HANDLER</span>);</span><br></pre></td></tr></table></figure>
+<p>● app 是 express 实例<br>●  METHOD 是一个 HTTP 请求方法<br>●  PATH 是服务端路径（定位标识）<br>●  HANDLER 是当路由匹配到时需要执行的处理函数 </p>
+<h4 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 当你以 GET 方法请求 / 的时候，执行对应的处理函数</span></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&quot;/&quot;</span>, <span class="keyword">function</span>(<span class="params">req, res</span>) &#123;</span><br><span class="line">  res.<span class="title function_">send</span>(<span class="string">&quot;Hello World!&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 当你以 POST 方法请求 / 的时候，指定对应的处理函数</span></span><br><span class="line">app.<span class="title function_">post</span>(<span class="string">&quot;/&quot;</span>, <span class="keyword">function</span>(<span class="params">req, res</span>) &#123;</span><br><span class="line">  res.<span class="title function_">send</span>(<span class="string">&quot;Got a POST request&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line">app.<span class="title function_">put</span>(<span class="string">&quot;/user&quot;</span>, <span class="keyword">function</span>(<span class="params">req, res</span>) &#123;</span><br><span class="line">  res.<span class="title function_">send</span>(<span class="string">&quot;Got a PUT request at /user&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line">app.<span class="title function_">delete</span>(<span class="string">&quot;/user&quot;</span>, <span class="keyword">function</span>(<span class="params">req, res</span>) &#123;</span><br><span class="line">  res.<span class="title function_">send</span>(<span class="string">&quot;Got a DELETE request at /user&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="路由路径"><a href="#路由路径" class="headerlink" title="路由路径"></a>路由路径</h3><p>路由路径与请求方法结合，定义了可以进行请求的端点。路由路径可以是字符串，字符串模式或正则表达式。字符?，+，*，和()是他们的正则表达式的对应的子集。连字符（-）和点(.)由基于字符串的路径按字面意义进行解释。<br>如果您需要$在路径字符串中使用美元字符()，请将其转义([并括在和中]) 例如，“&#x2F;data &#x2F;$book”处用于请求的路径字符串将为$</p>
+<p>Express使用path-to-regexp来匹配路由路径;	有关定义路由路径的所有可能性，请参见正则表达式路径文档。Express Route Tester尽管不支持模式匹配，但却是用于测试基本Express路由的便捷工具。</p>
+<p>● *查询字符串不是路由路径的一部分。</p>
+<h4 id="动态路径"><a href="#动态路径" class="headerlink" title="动态路径"></a>动态路径</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">app.<span class="title function_">get</span>(<span class="string">&quot;/users/:userId/books/:bookId&quot;</span>, <span class="keyword">function</span>(<span class="params">req, res</span>) &#123;</span><br><span class="line">  res.<span class="title function_">send</span>(req.<span class="property">params</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="路径参数"><a href="#路径参数" class="headerlink" title="路径参数"></a>路径参数</h4><p>路由参数被命名为URL段，用于捕获URL中在其位置处指定的值。捕获的值将填充到req.params对象中，并将路径中指定的route参数的名称作为其各自的键。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span> <span class="attr">path</span>: <span class="regexp">/flights/</span> :<span class="keyword">from</span>-:to</span><br><span class="line"><span class="title class_">Request</span> <span class="attr">URL</span>:<span class="attr">http</span>:<span class="comment">// localhost: 3000/flights/LAX-SFO</span></span><br><span class="line">req.<span class="property">params</span> : &#123; <span class="string">&quot;from&quot;</span> : <span class="string">&quot;LAX&quot;</span>,<span class="string">&quot;to&quot;</span> : <span class="string">&quot;SFO&quot;</span> &#125;</span><br></pre></td></tr></table></figure>
+<p>路径参数的名称必须由“文字字符”([A-Za-zO-9_]）组成。<br>由于连字符(-）和点（.)是按字面解释的，因此可以将它们与路由参数一起使用，以实现有用的目的。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span> path : <span class="regexp">/plantae/</span> :genus.:species</span><br><span class="line"><span class="title class_">Request</span> <span class="attr">URL</span>: http : <span class="comment">// localhost : 3000/plantae/Prunus.persica</span></span><br><span class="line">req.<span class="property">params</span> : &#123; <span class="string">&quot;genus &quot;</span> : <span class="string">&quot;prunus &quot;</span> , <span class="string">&quot; species &quot;</span> : <span class="string">&quot;persica&quot;</span> &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="路由处理方法"><a href="#路由处理方法" class="headerlink" title="路由处理方法"></a>路由处理方法</h4><p>app.route()</p>
+<p>express.Router</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">onst express = <span class="built_in">require</span>(<span class="string">&quot;express&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> router = express.<span class="title class_">Router</span>();</span><br><span class="line"></span><br><span class="line">router.<span class="title function_">get</span>(<span class="string">&quot;/&quot;</span>, <span class="keyword">function</span>(<span class="params">req, res</span>) &#123;</span><br><span class="line">  res.<span class="title function_">send</span>(<span class="string">&quot;home page&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">router.<span class="title function_">get</span>(<span class="string">&quot;/about&quot;</span>, <span class="keyword">function</span>(<span class="params">req, res</span>) &#123;</span><br><span class="line">  res.<span class="title function_">send</span>(<span class="string">&quot;About page&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">const</span> router = <span class="built_in">require</span>(<span class="string">&quot;./router&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">app.<span class="title function_">use</span>(router);</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = router;</span><br></pre></td></tr></table></figure>
+<h3 id="在-Express-中获取客户端请求参数的三种方式"><a href="#在-Express-中获取客户端请求参数的三种方式" class="headerlink" title="在 Express 中获取客户端请求参数的三种方式"></a>在 Express 中获取客户端请求参数的三种方式</h3><p>例如，有一个地址：&#x2F;a&#x2F;b&#x2F;c?foo&#x3D;bar&amp;id&#x3D;123</p>
+<h4 id="查询字符串参数"><a href="#查询字符串参数" class="headerlink" title="查询字符串参数"></a>查询字符串参数</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(req.<span class="property">query</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="请求体参数"><a href="#请求体参数" class="headerlink" title="请求体参数"></a>请求体参数</h4><p>POST 请求才有请求体，我们需要单独配置 body-parser 中间件才可以获取。<br>只要程序中配置了 body-parser 中间件，我们就可以通过 req.body 来获取表单 POST 请求体数据。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">req.<span class="property">body</span></span><br><span class="line"><span class="comment">// =&gt; 得到一个请求体对象</span></span><br></pre></td></tr></table></figure>
+<h4 id="动态的路径参数"><a href="#动态的路径参数" class="headerlink" title="动态的路径参数"></a>动态的路径参数</h4><p>在 Express 中，支持把一个路由设计为动态的。例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// /users/:id 要求必须以 /users/ 开头，:id 表示动态的，1、2、3、abc、dnsaj 任意都行</span></span><br><span class="line"><span class="comment">// 注意：:冒号很重要，如果你不加，则就变成了必须 === /users/id</span></span><br><span class="line"><span class="comment">// 为啥叫 id ，因为是动态的路径，服务器需要单独获取它，所以得给它起一个名字</span></span><br><span class="line"><span class="comment">// 那么我们就可以通过 req.params 来获取路径参数</span></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&quot;/users/:id&quot;</span>, <span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(req.<span class="property">params</span>.<span class="property">id</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// /users/*/abc</span></span><br><span class="line"><span class="comment">// req.params.id</span></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&quot;/users/:id/abc&quot;</span>, <span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(req.<span class="property">params</span>.<span class="property">id</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// /users/*/*</span></span><br><span class="line"><span class="comment">// req.params.id</span></span><br><span class="line"><span class="comment">// req.params.abc</span></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&quot;/users/:id/:abc&quot;</span>, <span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(req.<span class="property">params</span>.<span class="property">id</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// /*/*/*</span></span><br><span class="line"><span class="comment">// req.params.users</span></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&quot;/:users/:id/:abc&quot;</span>, <span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(req.<span class="property">params</span>.<span class="property">id</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// /*/id/*</span></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&quot;/:users/id/:abc&quot;</span>, <span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(req.<span class="property">params</span>.<span class="property">id</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="请求和响应"><a href="#请求和响应" class="headerlink" title="请求和响应"></a>请求和响应</h3><p>Express应用使用路由回调函数的参数：request和response 对象来处理请求和响应的数据。<br>Express不对Node.js 已有的特性进行二次抽象，只是在它之上扩展了web应用所需的基本功能。<br>●  内部使用的还是 http 模块<br>● 请求对象继承自: http.IncomingMessage<br>● 响应对象继承自: http.ServerResponse</p>
+<h3 id="处理静态资源"><a href="#处理静态资源" class="headerlink" title="处理静态资源"></a>处理静态资源</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 开放 public 目录中的资源</span></span><br><span class="line"><span class="comment">// 不需要访问前缀</span></span><br><span class="line">app.<span class="title function_">use</span>(express.<span class="title function_">static</span>(<span class="string">&quot;public&quot;</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 开放 files 目录资源，同上</span></span><br><span class="line">app.<span class="title function_">use</span>(express.<span class="title function_">static</span>(<span class="string">&quot;files&quot;</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 开放 public 目录，限制访问前缀</span></span><br><span class="line">app.<span class="title function_">use</span>(<span class="string">&quot;/public&quot;</span>, express.<span class="title function_">static</span>(<span class="string">&quot;public&quot;</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 开放 public 目录资源，限制访问前缀</span></span><br><span class="line">app.<span class="title function_">use</span>(<span class="string">&quot;/static&quot;</span>, express.<span class="title function_">static</span>(<span class="string">&quot;public&quot;</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 开放 publi 目录，限制访问前缀</span></span><br><span class="line"><span class="comment">// path.join(__dirname, &#x27;public&#x27;) 会得到一个动态的绝对路径</span></span><br><span class="line">app.<span class="title function_">use</span>(<span class="string">&quot;/static&quot;</span>, express.<span class="title function_">static</span>(path.<span class="title function_">join</span>(__dirname, <span class="string">&quot;public&quot;</span>)));</span><br></pre></td></tr></table></figure>
+
+<h2 id="Nodejs-express案例"><a href="#Nodejs-express案例" class="headerlink" title="Nodejs + express案例"></a><a href="/node-about/node-case">Nodejs + express案例</a></h2>
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/node-about/express.html" title="Express内容" target="_blank" rel="external">http://example.com/node-about/express.html</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="" target="_blank"><span class="text-dark">河南老表</span><small class="ml-1x">周贺涛的博客</small></a></h3>
+        <div>WEB前端。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+    <script>
+(function ($) {
+    $('.search-form').on('submit', function (e) {
+        var keyword = $('.search-form-input[name="wd"]').val();
+        window.location = 'https://www.baidu.com/s?wd=site:example.com ' + keyword;
+        return false;
+    });
+})(jQuery);
+</script>
+
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>

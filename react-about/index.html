@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>React | 周贺涛的博客</title>
+  <meta name="description" content="react简介React 是一个声明式，高效且灵活的用于构建用户界面的 JavaScript 库。使用 React 可以将一些简短、独立的代码片段组合成复杂的 UI 界面，这些代码片段被称作“组件”。React 中拥有多种不同类型的组件，我们先从 React.Component 的子类开始介绍： 12345678910111213141516class ShoppingList extends R">
+<meta property="og:type" content="website">
+<meta property="og:title" content="React">
+<meta property="og:url" content="http://example.com/react-about/index.html">
+<meta property="og:site_name" content="周贺涛的博客">
+<meta property="og:description" content="react简介React 是一个声明式，高效且灵活的用于构建用户界面的 JavaScript 库。使用 React 可以将一些简短、独立的代码片段组合成复杂的 UI 界面，这些代码片段被称作“组件”。React 中拥有多种不同类型的组件，我们先从 React.Component 的子类开始介绍： 12345678910111213141516class ShoppingList extends R">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-09-13T12:11:58.529Z">
+<meta property="article:modified_time" content="2022-09-13T12:11:58.529Z">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://example.com/react-about/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="周贺涛的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">河南老表</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">周贺涛的博客</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> 中国</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验! 本博客技术范围大致为WEB前端</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+
+    
+      
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled ">
+        
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2022/11/04/hello-world/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/11/04/hello-world/" class="title">欢迎来到我的博客</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-11-04T10:44:47.302Z" itemprop="datePublished">2022-11-04</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="page-" class="article article-type-page" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      React
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/react-about/index.html" class="article-date">
+	  <time datetime="2022-09-13T12:11:58.529Z" itemprop="datePublished">2022-09-13</time>
+	</a>
+</span>
+        
+        
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/react-about/index.html#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h3 id="react简介"><a href="#react简介" class="headerlink" title="react简介"></a>react简介</h3><p>React 是一个声明式，高效且灵活的用于构建用户界面的 JavaScript 库。使用 React 可以将一些简短、独立的代码片段组合成复杂的 UI 界面，这些代码片段被称作“组件”。<br>React 中拥有多种不同类型的组件，我们先从 React.Component 的子类开始介绍：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class ShoppingList extends React.Component &#123;</span><br><span class="line">  <span class="function"><span class="title">render</span></span>() &#123;</span><br><span class="line">    <span class="built_in">return</span> (</span><br><span class="line">      &lt;div className=<span class="string">&quot;shopping-list&quot;</span>&gt;</span><br><span class="line">        &lt;h1&gt;Shopping List <span class="keyword">for</span> &#123;this.props.name&#125;&lt;/h1&gt;</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">          &lt;li&gt;Instagram&lt;/li&gt;</span><br><span class="line">          &lt;li&gt;WhatsApp&lt;/li&gt;</span><br><span class="line">          &lt;li&gt;Oculus&lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 用法示例: &lt;ShoppingList name=<span class="string">&quot;Mark&quot;</span> /&gt;</span><br></pre></td></tr></table></figure>
+<p>我们马上会讨论这些又奇怪、又像 XML 的标签。我们通过使用组件来告诉 React 我们希望在屏幕上看到什么。当数据发生改变时，React 会高效地更新并重新渲染我们的组件。</p>
+<h2 id="创建react项目"><a href="#创建react项目" class="headerlink" title="创建react项目"></a>创建react项目</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx create-react-app 项目名</span><br></pre></td></tr></table></figure>
+
+<p>清空src目录<br>创建index.js</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span> src/*</span><br><span class="line"><span class="built_in">touch</span> src/index.js</span><br></pre></td></tr></table></figure>
+
+<p>index.js 入口js: 用react-dom渲染注入点</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const root = ReactDOM.createRoot(dom节点)</span><br><span class="line">root.render(&lt;App /&gt;)</span><br></pre></td></tr></table></figure>
+<h2 id="JSX"><a href="#JSX" class="headerlink" title="JSX"></a>JSX</h2><p>JSX: Javascript + XML<br>JSX是一个语法糖，React.createElement的语法糖</p>
+<p>React.createElement定义</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">React.createElement(组件, [属性props], [...children]) // 返回jsx元素</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element1 = <span class="language-xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span> <span class="comment">// element1的值叫做jsx的元素</span></span><br><span class="line">                                <span class="comment">// h1叫做jsx的组件</span></span><br><span class="line"><span class="keyword">const</span> element2 = <span class="language-xml"><span class="tag">&lt;<span class="name">App</span> /&gt;</span></span>        <span class="comment">// element2是元素</span></span><br><span class="line">                                <span class="comment">// App是组件</span></span><br><span class="line"><span class="keyword">const</span> element3 = <span class="language-xml"><span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&#x27;okBtn&#x27;</span> <span class="attr">type</span>=<span class="string">&#x27;button&#x27;</span>&gt;</span>OK<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> element4 = (</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">select</span> <span class="attr">name</span>=<span class="string">&quot;city&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;2&quot;</span>&gt;</span>上海<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;1&quot;</span>&gt;</span>北京<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span>)</span><br></pre></td></tr></table></figure>
+<p>React.createElement函数表达以上的代码(Babel转换成下面的代码)：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element1 = <span class="title class_">React</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;h1&#x27;</span>, <span class="literal">null</span>, <span class="string">&#x27;hello&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> element2 = <span class="title class_">React</span>.<span class="title function_">createElement</span>(<span class="title class_">App</span>)</span><br><span class="line"><span class="keyword">const</span> element3 = <span class="title class_">React</span>.<span class="title function_">createElement</span>(</span><br><span class="line">  <span class="string">&#x27;button&#x27;</span>, &#123;<span class="attr">id</span>: <span class="string">&#x27;okBtn&#x27;</span>, <span class="attr">type</span>: <span class="string">&#x27;button&#x27;</span>&#125;, <span class="string">&#x27;OK&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> element4 = <span class="title class_">React</span>.<span class="title function_">createElement</span>(</span><br><span class="line">  <span class="string">&#x27;select&#x27;</span>, &#123;<span class="attr">name</span>: <span class="string">&#x27;city&#x27;</span>&#125;,</span><br><span class="line">  <span class="title class_">React</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;option&#x27;</span>, &#123;<span class="attr">value</span>: <span class="string">&quot;1&quot;</span>&#125;, <span class="string">&#x27;北京&#x27;</span>),</span><br><span class="line">  <span class="title class_">React</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;option&#x27;</span>, &#123;<span class="attr">value</span>: <span class="string">&quot;2&quot;</span>&#125;, <span class="string">&#x27;上海&#x27;</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h2 id="html和jsx的转换关系"><a href="#html和jsx的转换关系" class="headerlink" title="html和jsx的转换关系"></a>html和jsx的转换关系</h2><p>第一点：<strong>jsx要符合xml的标准，jsx的html组件必须名字为小写</strong>：</p>
+<ul>
+<li>tag必须成对出现(<code>&lt;div&gt;...&lt;/div&gt;</code>)</li>
+<li>或者自结束标签(<code>&lt;input /&gt;</code>)<br>html的tag结构不严谨<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> el1 = &lt;h1&gt;&lt;<span class="regexp">/H1&gt; /</span><span class="regexp">/ ❌ 大小写不一样</span></span><br><span class="line"><span class="regexp">const el2 = &lt;H1&gt;&lt;/</span><span class="variable constant_">H1</span>&gt; <span class="comment">// ❌ 不是html里的h1对应的组件，而是自定义H1组件</span></span><br><span class="line"><span class="keyword">const</span> el3 = <span class="language-xml"><span class="tag">&lt;<span class="name">img</span> &gt;</span> // ❌ 无关闭标记</span></span><br><span class="line"><span class="language-xml">const el4 = <span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">b</span>&gt;</span>hello <span class="tag">&lt;<span class="name">i</span>&gt;</span>world<span class="tag">&lt;/<span class="name">b</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span> // ❌ 没有正确嵌套</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>第二点，<strong>jsx的属性名称由两个单词组成，用驼峰形式书写；html属性是不区分大小写的。</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;input value=<span class="string">&#x27;&#x27;</span> autoComplete=<span class="string">&#x27;on&#x27;</span> data-id=<span class="string">&#x27;name&#x27;</span>&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">td</span> <span class="attr">colSpan</span>=<span class="string">&#x27;2&#x27;</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>第三点：<strong>有一些属性名称在jsx中改变了:</strong></p>
+<ul>
+<li>class -&gt; className</li>
+<li>for -&gt; htmlFor<br>因为class和for都是js里的关键字，避免用关键字命名</li>
+</ul>
+<p>第四点：<strong>有一些属性是html没有的</strong></p>
+<ul>
+<li>key - 值字符串，为了表示元素唯一性</li>
+<li>ref - 为了引用dom元素或者jsx元素</li>
+<li>defaultValue 用来代替 value属性</li>
+<li>defaultChecked 用来代替checked属性</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=<span class="string">&#x27;text&#x27;</span> value=<span class="string">&#x27;abc&#x27;</span>/&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&#x27;text&#x27;</span> <span class="attr">defaultValue</span>=<span class="string">&#x27;abc&#x27;</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&#x27;checkbox&#x27;</span> <span class="attr">checked</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&#x27;checkbox&#x27;</span> <span class="attr">defaultChecked</span> /&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>第五点，<strong>html的style是字符串，jsx的style属性是object（dom里style对象的方式书写）</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">&#x27;font-size: 18px; color: red; text-decoration: underline&#x27;</span>&gt;</span>Hello World<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;span style=&#123;&#123;<span class="attr">fontSize</span>: <span class="string">&quot;18px&quot;</span>, <span class="attr">color</span>: <span class="string">&quot;red&quot;</span>, <span class="attr">textDecoration</span>: <span class="string">&quot;underline&quot;</span>&#125;&#125;&gt;<span class="title class_">Hello</span> <span class="title class_">World</span>&lt;/span&gt;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> styles = &#123;<span class="attr">fontSize</span>: <span class="string">&quot;18px&quot;</span>, <span class="attr">color</span>: <span class="string">&quot;red&quot;</span>, <span class="attr">textDecoration</span>: <span class="string">&quot;underline&quot;</span>&#125;</span><br><span class="line">&lt;span style=&#123;styles&#125;&gt;<span class="title class_">Hello</span> <span class="title class_">World</span>&lt;/span&gt;</span><br></pre></td></tr></table></figure>
+
+<p>第六点，<strong>开关属性（cheched, disabled, readOnly）值是布尔类型</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=<span class="string">&#x27;text&#x27;</span> readOnly=&#123;<span class="literal">true</span>&#125; /&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&#x27;text&#x27;</span> <span class="attr">readOnly</span>=<span class="string">&quot;true&quot;</span> /&gt;</span></span> &#123;<span class="comment">/*错*/</span>&#125;</span><br><span class="line"></span><br><span class="line">&lt;div className=<span class="string">&quot;container&quot;</span>&gt;&lt;/div&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&#123;</span>&quot;<span class="attr">container</span>&quot;&#125;&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">Counter</span> <span class="attr">value</span>=<span class="string">&quot;1&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">Counter</span> <span class="attr">value</span>=<span class="string">&#123;1&#125;</span> /&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>第七点，<strong>children位置（指元素标记之间的内容<code>&lt;b&gt;...&lt;/b&gt;</code>）用字符串表达式，里面的内容会自动转义（html特殊字符会转换成html entity，<code>&gt;  转换成 &amp;gt;</code> ）避免XSS攻击</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;&#123;<span class="string">&quot;&lt;b&gt;hello&lt;/b&gt; world&quot;</span>&#125;&lt;/div&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">dangerouslySetInnerHTML</span>=<span class="string">&#123;&#123;__html:</span> &quot;&lt;<span class="attr">b</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">b</span>&gt;</span> world&quot;&#125;&#125;&gt;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>第八点，<strong>html的注释<code>&lt;!-- 注释内容 --&gt;</code>，jsx的注释<code>&#123;/* 注释 */&#125;</code></strong></p>
+<p>第九点，<strong>html里换行也是一个空格，jsx里换行不是空格</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>红灯<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>绿灯<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 红灯 绿灯 --&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;span&gt;红灯&lt;/span&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">span</span>&gt;</span>绿灯<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line">&#123;<span class="comment">/* 红灯绿灯 */</span>&#125;</span><br><span class="line"></span><br><span class="line">&lt;span&gt;红灯&lt;/span&gt;&#123;<span class="string">&#x27; &#x27;</span>&#125;</span><br><span class="line">&lt;span&gt;绿灯&lt;/span&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="表达式使用"><a href="#表达式使用" class="headerlink" title="表达式使用"></a>表达式使用</h2><p>表达式用<code>&#123;表达式&#125;</code>，表达式只能写一个语句（if&#x2F;for&#x2F;while&#x2F;switch不能在表达式里使用）</p>
+<p>表达式可以用在children位置或者属性值位置</p>
+<p>children位置的表达式里不能是普通object</p>
+<p>有一些值放在表达式里没有任何渲染内容：false&#x2F;true&#x2F;null&#x2F;undefined&#x2F;NaN</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="number">1</span>&#125;</span><br><span class="line">&#123;<span class="string">&#x27;1&#x27;</span>&#125;</span><br><span class="line">&#123;<span class="literal">false</span>&#125;</span><br><span class="line">&#123;<span class="literal">null</span>&#125;</span><br><span class="line">&#123;<span class="number">1</span>+<span class="number">1</span>&#125;</span><br><span class="line">&#123;<span class="title class_">Math</span>.<span class="title function_">random</span>()&#125;</span><br><span class="line">&#123;<span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>123<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>&#125;</span><br><span class="line">&#123;<span class="title class_">Math</span>.<span class="title function_">random</span>() &gt; <span class="number">0.5</span> ? <span class="string">&#x27;正面&#x27;</span> : <span class="string">&#x27;背面&#x27;</span>&#125;</span><br><span class="line">&#123;[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].<span class="title function_">map</span>(<span class="function"><span class="params">n</span> =&gt;</span> n * <span class="number">2</span>).<span class="title function_">join</span>(<span class="string">&#x27;, &#x27;</span>)&#125;</span><br><span class="line">&#123;(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">if</span>(<span class="title class_">Math</span>.<span class="title function_">random</span>()&gt;<span class="number">0.5</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">2</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)()&#125;</span><br><span class="line">&lt;div className=&#123;<span class="string">`row <span class="subst">$&#123;index%<span class="number">2</span> ? <span class="string">&#x27;bg&#x27;</span> : <span class="string">&#x27;&#x27;</span>&#125;</span>`</span>&#125;&gt;&lt;/div&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;[1,2,3]&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">ul</span>&gt;</span>&#123;[<span class="tag">&lt;<span class="name">li</span>&gt;</span>1<span class="tag">&lt;/<span class="name">li</span>&gt;</span>,<span class="tag">&lt;<span class="name">li</span>&gt;</span>3<span class="tag">&lt;/<span class="name">li</span>&gt;</span>,<span class="tag">&lt;<span class="name">li</span>&gt;</span>2<span class="tag">&lt;/<span class="name">li</span>&gt;</span>]&#125;<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>表达式的扩展语法</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> params = &#123;</span><br><span class="line">  <span class="attr">className</span>: <span class="string">&#x27;abc&#x27;</span>,</span><br><span class="line">  <span class="attr">style</span>: &#123;<span class="attr">border</span>: <span class="string">&#x27;1px solid red&#x27;</span>&#125;,</span><br><span class="line">  <span class="attr">defaultValue</span>: <span class="string">&#x27;hello&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;input className=&#123;params.<span class="property">className</span>&#125; style=&#123;params.<span class="property">style</span>&#125; defaultValue=&#123;params.<span class="property">defaultValue</span>&#125; /&gt;</span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">className</span>=<span class="string">&#x27;xyz&#x27;</span> &#123;<span class="attr">...params</span>&#125; <span class="attr">className</span>=<span class="string">&#x27;a&#x27;</span>/&gt;</span></span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/react-about/index.html" title="React" target="_blank" rel="external">http://example.com/react-about/index.html</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="" target="_blank"><span class="text-dark">河南老表</span><small class="ml-1x">周贺涛的博客</small></a></h3>
+        <div>WEB前端。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+    <script>
+(function ($) {
+    $('.search-form').on('submit', function (e) {
+        var keyword = $('.search-form-input[name="wd"]').val();
+        window.location = 'https://www.baidu.com/s?wd=site:example.com ' + keyword;
+        return false;
+    });
+})(jQuery);
+</script>
+
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>

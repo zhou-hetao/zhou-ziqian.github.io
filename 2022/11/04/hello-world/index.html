@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>欢迎来到我的博客 | 周贺涛的博客</title>
+  <meta name="description" content="介绍 世上有两句疑问：这个程序怎么不运行？这个程序怎么运行了？我的博客 记录与2022.9.1这意味着这是一个新的开始这里面包括了  vue2&#x2F;3  javascript  React Html  css Es6 还有Nodejs，一串代码往往伴随着优化，接下来让我们一起努力吧  Vue2  vue 简介Vue 是一套用于构建用户界面的 渐进式框架 。与其它大型框架不同的是，Vue 采用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="欢迎来到我的博客">
+<meta property="og:url" content="http://example.com/2022/11/04/hello-world/index.html">
+<meta property="og:site_name" content="周贺涛的博客">
+<meta property="og:description" content="介绍 世上有两句疑问：这个程序怎么不运行？这个程序怎么运行了？我的博客 记录与2022.9.1这意味着这是一个新的开始这里面包括了  vue2&#x2F;3  javascript  React Html  css Es6 还有Nodejs，一串代码往往伴随着优化，接下来让我们一起努力吧  Vue2  vue 简介Vue 是一套用于构建用户界面的 渐进式框架 。与其它大型框架不同的是，Vue 采用">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-11-04T10:44:47.302Z">
+<meta property="article:modified_time" content="2022-11-01T05:56:10.842Z">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://example.com/2022/11/04/hello-world/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="周贺涛的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">河南老表</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">周贺涛的博客</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> 中国</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验! 本博客技术范围大致为WEB前端</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+
+    
+      
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled ">
+        
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2022/11/04/hello-world/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/11/04/hello-world/" class="title">欢迎来到我的博客</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-11-04T10:44:47.302Z" itemprop="datePublished">2022-11-04</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-hello-world" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      欢迎来到我的博客
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2022/11/04/hello-world/" class="article-date">
+	  <time datetime="2022-11-04T10:44:47.302Z" itemprop="datePublished">2022-11-04</time>
+	</a>
+</span>
+        
+        
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/11/04/hello-world/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><hr>
+<p>世上有两句疑问：这个程序怎么不运行？这个程序怎么运行了？我的博客 记录与2022.9.1这意味着这是一个新的开始<br>这里面包括了  vue2&#x2F;3  javascript  React Html  css Es6 还有Nodejs，一串代码往往伴随着优化，接下来让我们一起努力吧</p>
+<hr>
+<h2 id="Vue2"><a href="#Vue2" class="headerlink" title="Vue2"></a><a href="/vue2/index">Vue2</a></h2><hr>
+<p> vue 简介<br>Vue 是一套用于构建用户界面的 渐进式框架 。<br>与其它大型框架不同的是，Vue 采用自底向上增量开发的设计。<br>Vue 的核心库只关注视图层，并且非常容易学习，非常容易与其它库或已有项目整合。另一方面，Vue 完全有能力驱动采用单文件组件和Vue生态系统支持的库开发的复杂单页应用。<br>Vue.js 的目标是通过尽可能简单的 API 实现响应的数据绑定和组合的视图组件。<br>最初它不过是个人项目，时至今日，已成为全世界三大前端框架之一，github 上拥有 19.8万 Star。 领先于 React 和 Angular，在国内更是首选。<br> <a href="/vue2/index">查看更多↓</a></p>
+<hr>
+<h2 id="React"><a href="#React" class="headerlink" title="React"></a><a href="/react-about/index">React</a></h2><p>React 是一个声明式，高效且灵活的用于构建用户界面的 JavaScript 库。使用 React 可以将一些简短、独立的代码片段组合成复杂的 UI 界面，这些代码片段被称作“组件”。<br>React 中拥有多种不同类型的组件，我们先从 React.Component 的子类开始介绍：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class ShoppingList extends React.Component &#123;</span><br><span class="line">  <span class="function"><span class="title">render</span></span>() &#123;</span><br><span class="line">    <span class="built_in">return</span> (</span><br><span class="line">      &lt;div className=<span class="string">&quot;shopping-list&quot;</span>&gt;</span><br><span class="line">        &lt;h1&gt;Shopping List <span class="keyword">for</span> &#123;this.props.name&#125;&lt;/h1&gt;</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">          &lt;li&gt;Instagram&lt;/li&gt;</span><br><span class="line">          &lt;li&gt;WhatsApp&lt;/li&gt;</span><br><span class="line">          &lt;li&gt;Oculus&lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 用法示例: &lt;ShoppingList name=<span class="string">&quot;Mark&quot;</span> /&gt;</span><br></pre></td></tr></table></figure>
+<p>我们马上会讨论这些又奇怪、又像 XML 的标签。我们通过使用组件来告诉 React 我们希望在屏幕上看到什么。当数据发生改变时，React 会高效地更新并重新渲染我们的组件。<br><a href="/react-about/index">查看更多↓</a></p>
+<h2 id="Nodejs"><a href="#Nodejs" class="headerlink" title="Nodejs"></a><a href="/node-about/nodeall">Nodejs</a></h2><p>以下引自 <a target="_blank" rel="noopener" href="http://nodejs.cn/api-v16/">Node.js 官网</a>：<br>  ○  不是编程语言<br>  ○  也不是框架和库<br>  ○  是一个 JavaScript 运行时（环境）<br>  ○<br>    ■ 能解析和执行 JavaScript 代码（严格来说应该是 ECMAScript 代码）<br>  ○  构建于 Chrome V8 JavaScript 引擎之上<br>  ○  为 JavaScript 提供了服务端编程的能力<br>  ○<br>    ■ 文件 IO<br>  ○<br>    ■ 网络 IO<br>  ○  从技术角度它的能力和 Java、PHP、Python、Perl、Ruby 等服务端技术类似<br>  <a href="/node-about/nodeall">查看更多</a></p>
+<h2 id="小程序"><a href="#小程序" class="headerlink" title="小程序"></a><a href="/smallcx/index">小程序</a></h2><hr>
+<p>浅谈小程序<br>在 2016 年的「微信公开课 Pro」演讲中，微信事业群总裁张小龙这样描述了小程序的前景与未来：</p>
+<p>“ 小程序是一种不需要下载安装即可使用的应用，它实现了应用 “触手可及” 的梦想，用户扫一扫或者搜一下即可打开应用。也体现了 “用完即走” 的理念，用户不用关心是否安装太多应用的问题。应用将无处不在，随时可用，但又无须安装卸载 “。</p>
+<p>小程序刚发布的时候要求压缩包的体积不能大于 1M，否则无法通过，在 2017 年 4 月做 了改进，由原来的 1M 提升到 2M；<br>2017 年 1 月 9 日 0 点，万众瞩目的微信第一批小程序正式低调上线。<br><a href="/smallcx/index">查看更多↓</a></p>
+<hr>
+<h2 id="Nuxtjs学习"><a href="#Nuxtjs学习" class="headerlink" title="Nuxtjs学习"></a><a href="/Nuxt-about/index">Nuxtjs学习</a></h2><hr>
+<p>官网介绍<br>关于 Nuxt.js<br>2016 年 10 月 25 日，zeit.co 背后的团队对外发布了 Next.js，一个 React 的服务端渲染应用框架。几小时后，与 Next.js 异曲同工，一个基于 Vue.js 的服务端渲染应用框架应运而生，我们称之为：Nuxt.js。<br> Nuxt.js 是什么？<br>Nuxt.js 是一个基于 Vue.js 的通用应用框架。</p>
+<p>通过对客户端&#x2F;服务端基础架构的抽象组织，Nuxt.js 主要关注的是应用的 UI 渲染。</p>
+<p>我们的目标是创建一个灵活的应用框架，你可以基于它初始化新项目的基础结构代码，或者在已有 Node.js 项目中使用 Nuxt.js。</p>
+<p>Nuxt.js 预设了利用 Vue.js 开发服务端渲染的应用所需要的各种配置。</p>
+<p>除此之外，我们还提供了一种命令叫：nuxt generate ，为基于 Vue.js 的应用提供生成对应的静态站点的功能。</p>
+<p>我们相信这个命令所提供的功能，是向开发集成各种微服务（Microservices）的 Web 应用迈开的新一步。</p>
+<p>作为框架，Nuxt.js 为 客户端&#x2F;服务端 这种典型的应用架构模式提供了许多有用的特性，例如异步数据加载、中间件支持、布局支持等。<br><a href="/Nuxt-about/index">查看更多↓</a></p>
+<hr>
+<h3 id="Java学习"><a href="#Java学习" class="headerlink" title="Java学习"></a><a href="/java-about/index">Java学习</a></h3><hr>
+<p>简单地说，Java 是由 Sun Microsystems 公司于 1995 年推出的一门面向对象程序设计语言。2010 年 Oracle 公司收购 Sun Microsystems，之后由 Oracle 公司负责 Java 的维护和版本升级。<br><a href="/java-about/index">查看更多↓</a></p>
+<hr>
+<h3 id="更多内容后续更新-敬请期待-！-如有问题请联系-49-54-x37-x38-x37-x37-49-x33-51-x36-x40-x71-113-x2e-99-x6f-109-欢迎指导"><a href="#更多内容后续更新-敬请期待-！-如有问题请联系-49-54-x37-x38-x37-x37-49-x33-51-x36-x40-x71-113-x2e-99-x6f-109-欢迎指导" class="headerlink" title="更多内容后续更新  敬请期待 ！  如有问题请联系&#49;&#54;&#x37;&#x38;&#x37;&#x37;&#49;&#x33;&#51;&#x36;&#x40;&#x71;&#113;&#x2e;&#99;&#x6f;&#109;   欢迎指导"></a>更多内容后续更新  敬请期待 ！  如有问题请联系<a href="mailto:&#49;&#54;&#x37;&#x38;&#x37;&#x37;&#49;&#x33;&#51;&#x36;&#x40;&#x71;&#113;&#x2e;&#99;&#x6f;&#109;">&#49;&#54;&#x37;&#x38;&#x37;&#x37;&#49;&#x33;&#51;&#x36;&#x40;&#x71;&#113;&#x2e;&#99;&#x6f;&#109;</a>   欢迎指导</h3>
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/2022/11/04/hello-world/" title="欢迎来到我的博客" target="_blank" rel="external">http://example.com/2022/11/04/hello-world/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="" target="_blank"><span class="text-dark">河南老表</span><small class="ml-1x">周贺涛的博客</small></a></h3>
+        <div>WEB前端。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+    <script>
+(function ($) {
+    $('.search-form').on('submit', function (e) {
+        var keyword = $('.search-form-input[name="wd"]').val();
+        window.location = 'https://www.baidu.com/s?wd=site:example.com ' + keyword;
+        return false;
+    });
+})(jQuery);
+</script>
+
+
+
+
+   
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>

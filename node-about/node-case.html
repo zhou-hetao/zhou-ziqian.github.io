@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>Node+express案例 | 周贺涛的博客</title>
+  <meta name="description" content="登陆页面&#x2F;html版本(静态资源)123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960const http &#x3D; require(&amp;#x27;http&amp;#x27;)const app &#x3D; http.createServer">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Node+express案例">
+<meta property="og:url" content="http://example.com/node-about/node-case.html">
+<meta property="og:site_name" content="周贺涛的博客">
+<meta property="og:description" content="登陆页面&#x2F;html版本(静态资源)123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960const http &#x3D; require(&amp;#x27;http&amp;#x27;)const app &#x3D; http.createServer">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-09-16T07:27:23.832Z">
+<meta property="article:modified_time" content="2022-09-16T07:27:23.832Z">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://example.com/node-about/node-case.html">
+  
+    <link rel="alternate" href="/atom.xml" title="周贺涛的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">河南老表</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">周贺涛的博客</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> 中国</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验! 本博客技术范围大致为WEB前端</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+
+    
+      
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled ">
+        
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2022/11/04/hello-world/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/11/04/hello-world/" class="title">欢迎来到我的博客</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-11-04T10:44:47.302Z" itemprop="datePublished">2022-11-04</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="page-" class="article article-type-page" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Node+express案例
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/node-about/node-case.html" class="article-date">
+	  <time datetime="2022-09-16T07:27:23.832Z" itemprop="datePublished">2022-09-16</time>
+	</a>
+</span>
+        
+        
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/node-about/node-case.html#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h3 id="登陆页面-x2F-html版本-静态资源"><a href="#登陆页面-x2F-html版本-静态资源" class="headerlink" title="登陆页面&#x2F;html版本(静态资源)"></a>登陆页面&#x2F;html版本(静态资源)</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> app = http.<span class="title function_">createServer</span>()</span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> url = <span class="built_in">require</span>(<span class="string">&#x27;url&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> &#123; json &#125; = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> lodash = <span class="built_in">require</span>(<span class="string">&#x27;lodash&#x27;</span>)</span><br><span class="line">app.<span class="title function_">on</span>(<span class="string">&#x27;request&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">    req.<span class="property">url</span> = req.<span class="property">url</span>.<span class="title function_">toLowerCase</span>()</span><br><span class="line">    <span class="keyword">let</span> urlObj = url.<span class="title function_">parse</span>(req.<span class="property">url</span>, <span class="literal">true</span>)</span><br><span class="line">    <span class="keyword">if</span> (req.<span class="property">url</span> == <span class="string">&#x27;/&#x27;</span> || req.<span class="property">url</span> == <span class="string">&#x27;index&#x27;</span> || req.<span class="property">url</span> == <span class="string">&#x27;submit&#x27;</span>) &#123;</span><br><span class="line">        fs.<span class="title function_">readFile</span>(path.<span class="title function_">join</span>(__dirname, <span class="string">&#x27;view&#x27;</span>, <span class="string">&#x27;submit.html&#x27;</span>), <span class="string">&#x27;utf8&#x27;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (err) <span class="keyword">throw</span> err</span><br><span class="line">            res.<span class="title function_">end</span>(data)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (req.<span class="property">url</span> == <span class="string">&#x27;/login&#x27;</span>) &#123;</span><br><span class="line">        fs.<span class="title function_">readFile</span>(path.<span class="title function_">join</span>(__dirname, <span class="string">&#x27;view&#x27;</span>, <span class="string">&#x27;login.html&#x27;</span>), <span class="string">&#x27;utf8&#x27;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (err) <span class="keyword">throw</span> err</span><br><span class="line">            res.<span class="title function_">end</span>(data)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(req.<span class="property">url</span> == <span class="string">&quot;/home&quot;</span>)&#123;</span><br><span class="line">        fs.<span class="title function_">readFile</span>(path.<span class="title function_">join</span>(__dirname, <span class="string">&#x27;view&#x27;</span>, <span class="string">&#x27;home.html&#x27;</span>), <span class="string">&#x27;utf8&#x27;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (err) <span class="keyword">throw</span> err</span><br><span class="line">            res.<span class="title function_">end</span>(data)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (req.<span class="property">url</span>.<span class="title function_">startsWith</span>(<span class="string">&#x27;/add&#x27;</span>) &amp;&amp; req.<span class="property">method</span> == <span class="string">&#x27;GET&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">let</span> content = urlObj.<span class="property">query</span></span><br><span class="line">        fs.<span class="title function_">readFile</span>(path.<span class="title function_">join</span>(__dirname, <span class="string">&#x27;data&#x27;</span>, <span class="string">&#x27;kaoshi.json&#x27;</span>), <span class="string">&#x27;utf8&#x27;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (err &amp;&amp; err.<span class="property">code</span> != <span class="string">&#x27;ENOENT&#x27;</span>) <span class="keyword">throw</span> err</span><br><span class="line">            <span class="keyword">let</span> arr = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(data || <span class="string">&#x27;[]&#x27;</span>)</span><br><span class="line">            arr.<span class="title function_">push</span>(content)</span><br><span class="line">            fs.<span class="title function_">writeFile</span>(path.<span class="title function_">join</span>(__dirname,<span class="string">&#x27;data&#x27;</span>,<span class="string">&#x27;kaoshi.json&#x27;</span>),<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(arr,<span class="literal">null</span>,<span class="string">&#x27;  &#x27;</span>),<span class="function">(<span class="params">err</span>)=&gt;</span>&#123;</span><br><span class="line">               <span class="keyword">if</span>(err) <span class="keyword">throw</span> err</span><br><span class="line">               res.<span class="title function_">writeHead</span>(<span class="number">302</span>, <span class="string">&#x27;Found&#x27;</span>, &#123;</span><br><span class="line">                <span class="string">&#x27;Location&#x27;</span>: <span class="string">&#x27;login&#x27;</span></span><br><span class="line">              &#125;)</span><br><span class="line">              res.<span class="title function_">end</span>()</span><br><span class="line">            &#125;)</span><br><span class="line"></span><br><span class="line">        &#125;)</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span>(req.<span class="property">url</span>.<span class="title function_">startsWith</span>(<span class="string">&#x27;/out&#x27;</span>)&amp;&amp; req.<span class="property">method</span>==<span class="string">&#x27;GET&#x27;</span>)&#123;</span><br><span class="line">        <span class="keyword">let</span> count = urlObj.<span class="property">query</span></span><br><span class="line">        fs.<span class="title function_">readFile</span>(path.<span class="title function_">join</span>(__dirname,<span class="string">&#x27;data&#x27;</span>,<span class="string">&#x27;kaoshi.json&#x27;</span>),<span class="string">&#x27;utf-8&#x27;</span>,<span class="function">(<span class="params">err,data</span>)=&gt;</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(err) <span class="keyword">throw</span> err</span><br><span class="line">            <span class="keyword">let</span> arr = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(data)</span><br><span class="line">            <span class="keyword">var</span> m = lodash.<span class="title function_">findIndex</span>(arr, count)</span><br><span class="line">           <span class="keyword">if</span>(m&gt;=<span class="number">0</span>)&#123;</span><br><span class="line">            res.<span class="title function_">writeHead</span>(<span class="number">302</span>, <span class="string">&#x27;Found&#x27;</span>, &#123;</span><br><span class="line">                <span class="string">&#x27;Location&#x27;</span>: <span class="string">&#x27;/home&#x27;</span></span><br><span class="line">              &#125;)</span><br><span class="line">              res.<span class="title function_">end</span>()</span><br><span class="line">           &#125;</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;).<span class="title function_">listen</span>(<span class="number">3000</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;服务启动,请访问:http://localhost:3000&quot;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="express-cors跨域"><a href="#express-cors跨域" class="headerlink" title="express + cors跨域"></a>express + cors跨域</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> app = <span class="title function_">express</span>();</span><br><span class="line"><span class="keyword">var</span> cors = <span class="built_in">require</span>(<span class="string">&quot;cors&quot;</span>) <span class="comment">//cors同源跨域</span></span><br><span class="line">app.<span class="title function_">use</span>(cors)</span><br></pre></td></tr></table></figure>
+<h3 id="header跨域"><a href="#header跨域" class="headerlink" title="header跨域"></a>header跨域</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">app.<span class="title function_">all</span>(<span class="string">&#x27;*&#x27;</span>, <span class="keyword">function</span> (<span class="params">req, res, next</span>) &#123;</span><br><span class="line">    res.<span class="title function_">header</span>(<span class="string">&#x27;Access-Control-Allow-Origin&#x27;</span>, <span class="string">&#x27;*&#x27;</span>);  <span class="comment">//跨域</span></span><br><span class="line">    res.<span class="title function_">header</span>(<span class="string">&#x27;Access-Control-Allow-Headers&#x27;</span>, <span class="string">&#x27;X-Requested-With&#x27;</span>);</span><br><span class="line">    res.<span class="title function_">header</span>(<span class="string">&#x27;Access-Control-Allow-Methods&#x27;</span>, <span class="string">&#x27;PUT,POST,GET,DELETE,OPTIONS&#x27;</span>);</span><br><span class="line">    res.<span class="title function_">header</span>(<span class="string">&#x27;Access-Control-Allow-Credentials&#x27;</span>, <span class="string">&#x27;true&#x27;</span>);</span><br><span class="line">    res.<span class="title function_">header</span>(<span class="string">&#x27;Access-Control-Allow-Origin&#x27;</span>, <span class="string">&#x27;*&#x27;</span>)</span><br><span class="line">    <span class="comment">// res.header(&#x27;Access-Control-Allow-Headers&#x27;, &#x27;content-type,curUserId,token,platform&#x27;);</span></span><br><span class="line">    <span class="comment">// res.header(&#x27;Access-Control-Allow-Headers&#x27;, &#x27;curUserId,token,platform&#x27;);</span></span><br><span class="line">    res.<span class="title function_">header</span>(<span class="string">&#x27;X-Powered-By&#x27;</span>, <span class="string">&#x27;3.2.1&#x27;</span>);</span><br><span class="line">    res.<span class="title function_">header</span>(<span class="string">&#x27;Content-Type&#x27;</span>, <span class="string">&#x27;application/json;charset=utf-8&#x27;</span>);</span><br><span class="line">    <span class="title function_">next</span>();</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="用户-注册-x2F-登陆-x2F-验证"><a href="#用户-注册-x2F-登陆-x2F-验证" class="headerlink" title="用户  注册 &#x2F; 登陆 &#x2F; 验证"></a>用户  注册 &#x2F; 登陆 &#x2F; 验证</h3><h4 id="注册"><a href="#注册" class="headerlink" title="注册"></a>注册</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">app.<span class="title function_">use</span>(<span class="title function_">cors</span>()) <span class="comment">//设置cores同源跨域</span></span><br><span class="line">app.<span class="title function_">post</span>(<span class="string">&#x27;/user/add&#x27;</span>, urlencodedParser, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> content = req.<span class="property">body</span></span><br><span class="line">    fs.<span class="title function_">readFile</span>(path.<span class="title function_">join</span>(__dirname, <span class="string">&#x27;data&#x27;</span>, <span class="string">&#x27;Login.json&#x27;</span>), <span class="string">&#x27;utf-8&#x27;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (err) <span class="keyword">throw</span> err</span><br><span class="line">        <span class="keyword">let</span> str = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(data)</span><br><span class="line">        <span class="keyword">var</span> m = lodash.<span class="title function_">findIndex</span>(str, content);<span class="comment">//判断账户名密码是否正确</span></span><br><span class="line">        <span class="keyword">var</span> n = lodash.<span class="title function_">findIndex</span>(str, <span class="keyword">function</span> (<span class="params">o</span>) &#123;<span class="comment">//判断用户名是否存在</span></span><br><span class="line">            <span class="keyword">return</span> o.<span class="property">userName</span> === content.<span class="property">userName</span>;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">if</span> (m &gt;= <span class="number">0</span> || n &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            res.<span class="title function_">send</span>(&#123; <span class="attr">code</span>: <span class="number">201</span>, <span class="attr">message</span>: <span class="string">&quot;该用户已经存在&quot;</span> &#125;)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            content.<span class="property">id</span> = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(data).<span class="property">length</span> + <span class="number">1</span></span><br><span class="line">            content.<span class="property">time</span> = <span class="title function_">moment</span>(<span class="title class_">Date</span>.<span class="title function_">now</span>()).<span class="title function_">format</span>(<span class="string">&#x27;YYYY-MM-DD HH:mm:ss&#x27;</span>) <span class="comment">//用户注册时间</span></span><br><span class="line">            <span class="keyword">const</span> secret = <span class="string">&#x27;yating&#x27;</span>;</span><br><span class="line">            content.<span class="property">token</span> = jwt.<span class="title function_">sign</span>(content, secret)<span class="comment">//生成用户专属令牌token</span></span><br><span class="line">            <span class="keyword">var</span> arr = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(data || <span class="string">&quot;[]&quot;</span>)</span><br><span class="line">            arr.<span class="title function_">push</span>(content)</span><br><span class="line">            fs.<span class="title function_">writeFile</span>(path.<span class="title function_">join</span>(__dirname, <span class="string">&#x27;data&#x27;</span>, <span class="string">&#x27;Login.json&#x27;</span>), <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(arr, <span class="literal">null</span>, <span class="string">&quot; &quot;</span>), <span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (err) <span class="keyword">throw</span> err</span><br><span class="line">                fs.<span class="title function_">readFile</span>(path.<span class="title function_">join</span>(__dirname, <span class="string">&#x27;data&#x27;</span>, <span class="string">&#x27;Login.json&#x27;</span>), <span class="string">&#x27;utf-8&#x27;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">                    res.<span class="title function_">send</span>(&#123; <span class="attr">code</span>: <span class="number">200</span>, <span class="attr">message</span>: <span class="string">&quot;已添加该用户&quot;</span> &#125;)</span><br><span class="line">                &#125;)</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="登陆"><a href="#登陆" class="headerlink" title="登陆"></a>登陆</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">app.<span class="title function_">use</span>(<span class="title function_">cors</span>())</span><br><span class="line">app.<span class="title function_">post</span>(<span class="string">&quot;/login/add&quot;</span>, urlencodedParser, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> content = req.<span class="property">body</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(content);</span><br><span class="line">    fs.<span class="title function_">readFile</span>(path.<span class="title function_">join</span>(__dirname, <span class="string">&#x27;data&#x27;</span>, <span class="string">&#x27;Login.json&#x27;</span>), <span class="string">&#x27;utf-8&#x27;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (err) <span class="keyword">throw</span> err</span><br><span class="line">        <span class="keyword">var</span> arr = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(data)</span><br><span class="line">        <span class="keyword">var</span> m = lodash.<span class="title function_">findIndex</span>(arr, content)</span><br><span class="line">        <span class="keyword">if</span> (m &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">const</span> token = <span class="title function_">jwtSign</span>(&#123;<span class="attr">_id</span>:arr[m].<span class="property">id</span>&#125;) <span class="comment">//返回带有时效的token</span></span><br><span class="line">            res.<span class="title function_">send</span>(&#123; <span class="attr">code</span>: <span class="number">200</span>, <span class="attr">message</span>: <span class="string">&quot;登陆成功&quot;</span>, <span class="attr">token</span>:token &#125;)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            res.<span class="title function_">send</span>(&#123; <span class="attr">code</span>: <span class="number">201</span>, <span class="attr">message</span>: <span class="string">&quot;登陆失败该用户不存在/密码错误&quot;</span> &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="验证token-jwt插件"><a href="#验证token-jwt插件" class="headerlink" title="验证token  jwt插件"></a>验证token  jwt插件</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//utils/jsw</span></span><br><span class="line"><span class="keyword">const</span> jwt = <span class="built_in">require</span>(<span class="string">&#x27;jsonwebtoken&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> jwtKey = <span class="string">&#x27;junkaicool&#x27;</span> <span class="comment">// token生成的密匙</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">jwtSign</span> = (<span class="params">data</span>) =&gt; &#123; <span class="comment">// token生成函数，有效时间为一个小时</span></span><br><span class="line">  <span class="keyword">const</span> token = jwt.<span class="title function_">sign</span>(data, jwtKey, &#123;<span class="attr">expiresIn</span>:<span class="number">60</span>*<span class="number">60</span>&#125;)</span><br><span class="line">  <span class="keyword">return</span> token</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">jwtCheck</span> = (<span class="params">req, res, next</span>) =&gt; &#123; <span class="comment">// token验证函数</span></span><br><span class="line">  <span class="keyword">const</span> token = req.<span class="property">headers</span>.<span class="property">token</span></span><br><span class="line">  jwt.<span class="title function_">verify</span>(token, jwtKey, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (err) &#123;</span><br><span class="line">      res.<span class="title function_">send</span>(&#123;</span><br><span class="line">        <span class="attr">code</span>: <span class="string">&#x27;99999999&#x27;</span>,</span><br><span class="line">        <span class="attr">msg</span>: <span class="string">&#x27;token无效&#x27;</span></span><br><span class="line">      &#125;)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      req.<span class="property">jwtInfo</span> = data</span><br><span class="line">      <span class="title function_">next</span>()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  jwtSign,</span><br><span class="line">  jwtCheck</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//验证是否登陆</span></span><br><span class="line"><span class="keyword">const</span> &#123;jwtCheck&#125; = <span class="built_in">require</span>(<span class="string">&#x27;./utils/jsw&#x27;</span>)</span><br><span class="line"><span class="comment">// header传递token值判断是否登陆  和token值是否失效</span></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&quot;/token&quot;</span>,jwtCheck,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;</span><br><span class="line">    res.<span class="title function_">send</span>(&#123;</span><br><span class="line">        <span class="attr">code</span>:<span class="number">200</span>,</span><br><span class="line">        <span class="attr">meg</span>:<span class="string">&quot;验证成功&quot;</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="获取博客列表数据"><a href="#获取博客列表数据" class="headerlink" title="获取博客列表数据"></a>获取博客列表数据</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取博客所有文章</span></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&quot;/blog/list&quot;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">    fs.<span class="title function_">readFile</span>(path.<span class="title function_">join</span>(__dirname, <span class="string">&#x27;data&#x27;</span>, <span class="string">&#x27;list.json&#x27;</span>), <span class="string">&#x27;utf-8&#x27;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (err) <span class="keyword">throw</span> err</span><br><span class="line">        res.<span class="title function_">send</span>(&#123;</span><br><span class="line">            <span class="attr">code</span>:<span class="number">200</span>,</span><br><span class="line">            <span class="attr">message</span>:<span class="string">&quot;数据获取成功&quot;</span>,</span><br><span class="line">            <span class="attr">list</span>:data</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="添加博客"><a href="#添加博客" class="headerlink" title="添加博客"></a>添加博客</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//添加博客</span></span><br><span class="line">app.<span class="title function_">post</span>(<span class="string">&quot;/blog/add&quot;</span>, urlencodedParser, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> content = req.<span class="property">body</span><span class="comment">//获取传递的数据</span></span><br><span class="line">    fs.<span class="title function_">readFile</span>(path.<span class="title function_">join</span>(__dirname, <span class="string">&#x27;data&#x27;</span>, <span class="string">&#x27;list.json&#x27;</span>), <span class="string">&#x27;utf-8&#x27;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (err) <span class="keyword">throw</span> err</span><br><span class="line">        <span class="keyword">if</span>(content.<span class="property">categoryId</span>!=<span class="literal">undefined</span>)&#123;</span><br><span class="line">            content.<span class="property">id</span> = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(data).<span class="property">length</span> + <span class="number">1</span> <span class="comment">//id</span></span><br><span class="line">        content.<span class="property">categoryId</span> = <span class="title class_">Number</span>(content.<span class="property">categoryId</span>)  <span class="comment">//用户id</span></span><br><span class="line">        content.<span class="property">time</span> = <span class="title function_">moment</span>(<span class="title class_">Date</span>.<span class="title function_">now</span>()).<span class="title function_">format</span>(<span class="string">&#x27;YYYY-MM-DD HH:mm:ss&#x27;</span>)<span class="comment">//生成添加时间    moment插件</span></span><br><span class="line">        <span class="keyword">var</span> arr = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(data || <span class="string">&quot;[]&quot;</span>)</span><br><span class="line">        arr.<span class="title function_">push</span>(content)</span><br><span class="line">        fs.<span class="title function_">writeFile</span>(path.<span class="title function_">join</span>(__dirname, <span class="string">&#x27;data&#x27;</span>, <span class="string">&#x27;list.json&#x27;</span>), <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(arr, <span class="literal">null</span>, <span class="string">&quot; &quot;</span>), <span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (err) <span class="keyword">throw</span> err</span><br><span class="line">            fs.<span class="title function_">readFile</span>(path.<span class="title function_">join</span>(__dirname, <span class="string">&#x27;data&#x27;</span>, <span class="string">&#x27;list.json&#x27;</span>), <span class="string">&#x27;utf-8&#x27;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">                res.<span class="title function_">send</span>(data)</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            res.<span class="title function_">send</span>(&#123;</span><br><span class="line">                <span class="attr">code</span>:<span class="number">201</span>,</span><br><span class="line">                <span class="attr">message</span>:<span class="string">&quot;缺少必要参数&quot;</span></span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="获取单条博客数据"><a href="#获取单条博客数据" class="headerlink" title="获取单条博客数据"></a>获取单条博客数据</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//获取单条博客文章详情</span></span><br><span class="line">app.<span class="title function_">post</span>(<span class="string">&quot;/blog/list/:id&quot;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> arg = url.<span class="title function_">parse</span>(req.<span class="property">url</span>).<span class="property">path</span></span><br><span class="line">    <span class="keyword">var</span> ids = arg.<span class="title function_">match</span>(<span class="regexp">/\d+/g</span>).<span class="title function_">join</span>(<span class="string">&quot; &quot;</span>)</span><br><span class="line">    fs.<span class="title function_">readFile</span>(path.<span class="title function_">join</span>(__dirname, <span class="string">&quot;data&quot;</span>, <span class="string">&quot;list.json&quot;</span>), <span class="string">&#x27;utf-8&#x27;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (err) <span class="keyword">throw</span> err</span><br><span class="line">        <span class="keyword">let</span> str = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(data)</span><br><span class="line">        <span class="keyword">var</span> n = lodash.<span class="title function_">findIndex</span>(str, <span class="keyword">function</span> (<span class="params">o</span>) &#123; <span class="keyword">return</span> o.<span class="property">id</span> == ids; &#125;)</span><br><span class="line">        <span class="keyword">if</span> (n &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            res.<span class="title function_">send</span>(str[n])</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            res.<span class="title function_">send</span>(&#123; <span class="attr">code</span>: <span class="number">201</span>, <span class="attr">message</span>: <span class="string">&quot;暂无此数据&quot;</span> &#125;)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="删除博客"><a href="#删除博客" class="headerlink" title="删除博客"></a>删除博客</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//删除博客文章</span></span><br><span class="line">app.<span class="title function_">delete</span>(<span class="string">&quot;/blog/list/delete/:id&quot;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> arg = url.<span class="title function_">parse</span>(req.<span class="property">url</span>).<span class="property">path</span></span><br><span class="line">    <span class="keyword">var</span> ids = arg.<span class="title function_">match</span>(<span class="regexp">/\d+/g</span>).<span class="title function_">join</span>(<span class="string">&quot; &quot;</span>)</span><br><span class="line">    fs.<span class="title function_">readFile</span>(path.<span class="title function_">join</span>(__dirname, <span class="string">&#x27;data&#x27;</span>, <span class="string">&#x27;list.json&#x27;</span>), <span class="string">&#x27;utf-8&#x27;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (err) <span class="keyword">throw</span> err</span><br><span class="line">        <span class="keyword">let</span> str = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(data)</span><br><span class="line">        <span class="keyword">var</span> s = lodash.<span class="title function_">remove</span>(str, <span class="keyword">function</span> (<span class="params">n</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> n.<span class="property">id</span> == ids;</span><br><span class="line">        &#125;);</span><br><span class="line">        fs.<span class="title function_">writeFile</span>(path.<span class="title function_">join</span>(__dirname, <span class="string">&#x27;data&#x27;</span>, <span class="string">&#x27;list.json&#x27;</span>), <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(str, <span class="literal">null</span>, <span class="string">&quot; &quot;</span>), <span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (err) <span class="keyword">throw</span> err</span><br><span class="line">            fs.<span class="title function_">readFile</span>(path.<span class="title function_">join</span>(__dirname, <span class="string">&#x27;data&#x27;</span>, <span class="string">&#x27;list.json&#x27;</span>), <span class="string">&#x27;utf-8&#x27;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">                res.<span class="title function_">send</span>(data)</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="博客更新"><a href="#博客更新" class="headerlink" title="博客更新"></a>博客更新</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//更新博客</span></span><br><span class="line">app.<span class="title function_">put</span>(<span class="string">&quot;/blog/list/put/:id&quot;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> content = req.<span class="property">body</span></span><br><span class="line">    <span class="keyword">var</span> arg = url.<span class="title function_">parse</span>(req.<span class="property">url</span>).<span class="property">path</span></span><br><span class="line">    <span class="keyword">var</span> ids = arg.<span class="title function_">match</span>(<span class="regexp">/\d+/g</span>).<span class="title function_">join</span>(<span class="string">&quot; &quot;</span>)</span><br><span class="line">    fs.<span class="title function_">readFile</span>(path.<span class="title function_">join</span>(__dirname, <span class="string">&#x27;data&#x27;</span>, <span class="string">&#x27;list.json&#x27;</span>), <span class="string">&#x27;utf-8&#x27;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (err) <span class="keyword">throw</span> err</span><br><span class="line">        <span class="keyword">let</span> str = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(data)</span><br><span class="line">        <span class="keyword">var</span> n = lodash.<span class="title function_">findIndex</span>(str, <span class="keyword">function</span> (<span class="params">o</span>) &#123; <span class="keyword">return</span> o.<span class="property">id</span> == ids; &#125;)</span><br><span class="line">        <span class="keyword">if</span> (n &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            content.<span class="property">time</span> = <span class="title function_">moment</span>(<span class="title class_">Date</span>.<span class="title function_">now</span>()).<span class="title function_">format</span>(<span class="string">&#x27;YYYY-MM-DD HH:mm:ss&#x27;</span>)</span><br><span class="line">            content.<span class="property">id</span> = str[n].<span class="property">id</span></span><br><span class="line">            str[n] = content</span><br><span class="line">            fs.<span class="title function_">writeFile</span>(path.<span class="title function_">join</span>(__dirname, <span class="string">&#x27;data&#x27;</span>, <span class="string">&#x27;list.json&#x27;</span>), <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(str, <span class="literal">null</span>, <span class="string">&quot; &quot;</span>), <span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (err) <span class="keyword">throw</span> err</span><br><span class="line">                fs.<span class="title function_">readFile</span>(path.<span class="title function_">join</span>(__dirname, <span class="string">&#x27;data&#x27;</span>, <span class="string">&#x27;list.json&#x27;</span>), <span class="string">&#x27;utf-8&#x27;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">                    res.<span class="title function_">send</span>(data)</span><br><span class="line">                &#125;)</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            res.<span class="title function_">send</span>(&#123; <span class="attr">code</span>: <span class="number">201</span>, <span class="attr">message</span>: <span class="string">&quot;暂无数据&quot;</span> &#125;)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/node-about/node-case.html" title="Node+express案例" target="_blank" rel="external">http://example.com/node-about/node-case.html</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="" target="_blank"><span class="text-dark">河南老表</span><small class="ml-1x">周贺涛的博客</small></a></h3>
+        <div>WEB前端。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+    <script>
+(function ($) {
+    $('.search-form').on('submit', function (e) {
+        var keyword = $('.search-form-input[name="wd"]').val();
+        window.location = 'https://www.baidu.com/s?wd=site:example.com ' + keyword;
+        return false;
+    });
+})(jQuery);
+</script>
+
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>

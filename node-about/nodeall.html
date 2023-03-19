@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>Nodejs内容 | 周贺涛的博客</title>
+  <meta name="description" content="快速进入 查看更多Express内容  Nodejs + express案例 Nodejs简介以下引自 Node.js 官网：    不是编程语言    也不是框架和库    是一个 JavaScript 运行时（环境）   能解析和执行 JavaScript 代码（严格来说应该是 ECMAScript 代码） 构建于 Chrome V8 JavaScript 引擎之上  为 JavaScript">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Nodejs内容">
+<meta property="og:url" content="http://example.com/node-about/nodeall.html">
+<meta property="og:site_name" content="周贺涛的博客">
+<meta property="og:description" content="快速进入 查看更多Express内容  Nodejs + express案例 Nodejs简介以下引自 Node.js 官网：    不是编程语言    也不是框架和库    是一个 JavaScript 运行时（环境）   能解析和执行 JavaScript 代码（严格来说应该是 ECMAScript 代码） 构建于 Chrome V8 JavaScript 引擎之上  为 JavaScript">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/images/node1.jpeg">
+<meta property="og:image" content="http://example.com/images/node2.jpeg">
+<meta property="article:published_time" content="2022-09-16T07:32:11.398Z">
+<meta property="article:modified_time" content="2022-09-16T07:32:11.398Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/node1.jpeg">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://example.com/node-about/nodeall.html">
+  
+    <link rel="alternate" href="/atom.xml" title="周贺涛的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">河南老表</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">周贺涛的博客</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> 中国</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验! 本博客技术范围大致为WEB前端</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+
+    
+      
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled ">
+        
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2022/11/04/hello-world/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/11/04/hello-world/" class="title">欢迎来到我的博客</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-11-04T10:44:47.302Z" itemprop="datePublished">2022-11-04</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="page-" class="article article-type-page" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Nodejs内容
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/node-about/nodeall.html" class="article-date">
+	  <time datetime="2022-09-16T07:32:11.398Z" itemprop="datePublished">2022-09-16</time>
+	</a>
+</span>
+        
+        
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/node-about/nodeall.html#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h3 id="快速进入"><a href="#快速进入" class="headerlink" title="快速进入"></a>快速进入</h3><p> <a href="/node-about/express">查看更多Express内容</a><br>  <a href="/node-about/node-case">Nodejs + express案例</a></p>
+<h3 id="Nodejs简介"><a href="#Nodejs简介" class="headerlink" title="Nodejs简介"></a>Nodejs简介</h3><p>以下引自 <a target="_blank" rel="noopener" href="http://nodejs.cn/api-v16/">Node.js 官网</a>：<br>    不是编程语言<br>    也不是框架和库<br>    是一个 JavaScript 运行时（环境） </p>
+<pre><code> 能解析和执行 JavaScript 代码（严格来说应该是 ECMAScript 代码）
+构建于 Chrome V8 JavaScript 引擎之上 
+为 JavaScript 提供了服务端编程的能力 
+
+ 文件 IO
+
+ 网络 IO
+从技术角度它的能力和 Java、PHP、Python、Perl、Ruby 等服务端技术类似 
+</code></pre>
+<h3 id="Node-的特点"><a href="#Node-的特点" class="headerlink" title="Node 的特点"></a>Node 的特点</h3><pre><code>事件驱动 
+非阻塞 IO（异步） 模型 
+单线程 
+跨平台 
+</code></pre>
+<h3 id="Node-的运行机制"><a href="#Node-的运行机制" class="headerlink" title="Node 的运行机制"></a>Node 的运行机制</h3><p>多线程处理机制：<br>  <img src="/images/node1.jpeg" alt="alt"></p>
+<h4 id="Web-服务器（Apache、Tomcat、IIS）："><a href="#Web-服务器（Apache、Tomcat、IIS）：" class="headerlink" title="Web 服务器（Apache、Tomcat、IIS）："></a>Web 服务器（Apache、Tomcat、IIS）：</h4><pre><code>请求进来 
+Web 服务器开启一个线程来处理用户请求 
+同一时间有 n 请求，服务器就需要开启 n 个线程 
+
+ 一个线程最少得消耗 8MB 内存
+
+ 对于一个 8GB 内存的服务器来说，它能应对的并发数是 1024 * 8 / 8 = 1024 个并发
+</code></pre>
+<h4 id="事件驱动处理模型："><a href="#事件驱动处理模型：" class="headerlink" title="事件驱动处理模型："></a>事件驱动处理模型：</h4><pre><code>Node 中低层封装了一堆的异步操作 API 
+
+ 文件操作
+
+ 网络操作
+
+ ...
+JavaScript 语言本身是单线程的 
+</code></pre>
+<p>  <img src="/images/node2.jpeg" alt="alt"></p>
+<h3 id="模块通信规则"><a href="#模块通信规则" class="headerlink" title="模块通信规则"></a>模块通信规则</h3><h5 id="require-模块导入"><a href="#require-模块导入" class="headerlink" title="require 模块导入"></a>require 模块导入</h5> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"> // 核心模块</span><br><span class="line">var fs = require(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line"></span><br><span class="line">// 第三方模块</span><br><span class="line">// npm install marked</span><br><span class="line">var marked = require(<span class="string">&quot;marked&quot;</span>);</span><br><span class="line"></span><br><span class="line">// 用户模块（自己写的），正确的，正确的方式</span><br><span class="line">// 注意：加载自己写的模块，相对路径不能省略 ./</span><br><span class="line">var foo = require(<span class="string">&quot;./foo.js&quot;</span>);</span><br><span class="line"></span><br><span class="line">// 用户模块（自己写的），正确的（推荐），可以省略后缀名 .js</span><br><span class="line">var foo = require(<span class="string">&quot;./foo&quot;</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="require内部处理流程"><a href="#require内部处理流程" class="headerlink" title="require内部处理流程"></a>require内部处理流程</h4><ol>
+<li>检查Module._cache是够缓存到了指定模块</li>
+<li>如果缓存没有的话，就创建一个新的module实例将他保存到缓存</li>
+<li>module.load()加载指定模块</li>
+<li>在解析的过程中如果发生异变，仓缓存中删除该模块</li>
+<li>返回该模块的moudule.exprots</li>
+</ol>
+<h4 id="exports-模块导出"><a href="#exports-模块导出" class="headerlink" title="exports 模块导出"></a>exports 模块导出</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">// 导出多个成员：写法一</span><br><span class="line">module.exports.a = 123;</span><br><span class="line">module.exports.b = 456;</span><br><span class="line">module.exports.c = 789;</span><br><span class="line">//导出多个成员：写法二（推荐）Node 为了降低开发人员的痛苦，所以为 module.exports 提供了一个别名 exports （下面协大等价于上面的写法）。 </span><br><span class="line">console.log(exports === module.exports); // =&gt; <span class="literal">true</span></span><br><span class="line">exports.a = 123;</span><br><span class="line">exports.b = 456;</span><br><span class="line">exports.c = 789;</span><br><span class="line">exports.fn = <span class="function"><span class="title">function</span></span>() &#123;&#125;;</span><br><span class="line">//导出单个成员：（唯一的写法）：</span><br><span class="line">// 导出单个成员：错误的写法</span><br><span class="line">// 因为每个模块最终导出是 module.exports 而不是 exports 这个别名</span><br><span class="line">// exports = <span class="keyword">function</span> (x, y) &#123;</span><br><span class="line">//   <span class="built_in">return</span> x + y</span><br><span class="line">// &#125;</span><br><span class="line"></span><br><span class="line">// 导出单个成员：必须这么写</span><br><span class="line">module.exports = <span class="keyword">function</span>(x, y) &#123;</span><br><span class="line">  <span class="built_in">return</span> x + y;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="exports-和-module-exports-的区别"><a href="#exports-和-module-exports-的区别" class="headerlink" title="exports 和 module.exports 的区别"></a>exports 和 module.exports 的区别</h3><p>   exports 和 module.exports 的区别 </p>
+<pre><code> 每个模块中都有一个 module 对象
+
+ module 对象中有一个 exports 对象
+
+ 我们可以把需要导出的成员都挂载到 module.exports 接口对象中
+
+ 也就是：moudle.exports.xxx = xxx 的方式
+
+ 但是每次都 moudle.exports.xxx = xxx 很麻烦，点儿的太多了
+
+ 所以 Node 为了你方便，同时在每一个模块中都提供了一个成员叫：exports
+
+ exports === module.exports 结果为 true
+
+ 所以对于：moudle.exports.xxx = xxx 的方式 完全可以：expots.xxx = xxx
+
+ 当一个模块需要导出单个成员的时候，这个时候必须使用：module.exports = xxx 的方式
+
+ 不要使用 exports = xxx 不管用
+
+ 因为每个模块最终向外 return 的是 module.exports
+
+ 而 exports 只是 module.exports 的一个引用
+
+ 所以即便你为 exports = xx 重新赋值，也不会影响 module.exports
+
+ 但是有一种赋值方式比较特殊：exports = module.exports 这个用来重新建立引用关系的
+
+ 之所以让大家明白这个道理，是希望可以更灵活的去用它
+</code></pre>
+<h3 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h3><h4 id="fs模块"><a href="#fs模块" class="headerlink" title="fs模块"></a>fs模块</h4><p> | API	| 作用 | 备注 |</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">fs.access(path, callback)	判断路径是否存在	</span><br><span class="line"></span><br><span class="line">fs.appendFile(file, data, callback)	向文件中追加内容	</span><br><span class="line"></span><br><span class="line">fs.copyFile(src, callback)	复制文件	</span><br><span class="line"></span><br><span class="line">fs.mkdir(path, callback)	创建目录	</span><br><span class="line"></span><br><span class="line">fs.readDir(path, callback)	读取目录列表	</span><br><span class="line"></span><br><span class="line">fs.rename(oldPath, newPath, callback)	重命名文件/目录	</span><br><span class="line"></span><br><span class="line">fs.rmdir(path, callback)	删除目录	只能删除空目录</span><br><span class="line"></span><br><span class="line">fs.stat(path, callback)	获取文件/目录信息	</span><br><span class="line"></span><br><span class="line">fs.unlink(path, callback)	删除文件	</span><br><span class="line"></span><br><span class="line">fs.watch(filename[, options][, listener])	监视文件/目录	</span><br><span class="line"></span><br><span class="line">fs.watchFile(filename[, options], listener)	监视文件	</span><br></pre></td></tr></table></figure>
+<h4 id="path-模块"><a href="#path-模块" class="headerlink" title="path 模块"></a>path 模块</h4><p>参考文档：<a target="_blank" rel="noopener" href="https://nodejs.org/dist/latest-v9.x/docs/api/path.htmlpath">https://nodejs.org/dist/latest-v9.x/docs/api/path.htmlpath</a> 是 Node 本身提供的一个核心模块，专门用来处理路径。<br>使用它的第一步就是先加载： </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&quot;path&quot;</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="path-basename"><a href="#path-basename" class="headerlink" title="path.basename"></a>path.basename</h5><p>获取一个路径的文件名部分 </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">path.<span class="title function_">basename</span>(<span class="string">&quot;/foo/bar/baz/asdf/quux.html&quot;</span>);</span><br><span class="line"><span class="comment">// Returns: &#x27;quux.html&#x27;</span></span><br><span class="line"></span><br><span class="line">path.<span class="title function_">basename</span>(<span class="string">&quot;/foo/bar/baz/asdf/quux.html&quot;</span>, <span class="string">&quot;.html&quot;</span>);</span><br><span class="line"><span class="comment">// Returns: &#x27;quux&#x27;</span></span><br></pre></td></tr></table></figure>
+<h5 id="path-dirname"><a href="#path-dirname" class="headerlink" title="path.dirname"></a>path.dirname</h5><p> 获取一个路径的目录部分<br> <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> path.<span class="title function_">dirname</span>(<span class="string">&quot;/foo/bar/baz/asdf/quux&quot;</span>);</span><br><span class="line"><span class="comment">// Returns: &#x27;/foo/bar/baz/asdf&#x27;</span></span><br></pre></td></tr></table></figure></p>
+<h5 id="path-extname"><a href="#path-extname" class="headerlink" title="path.extname"></a>path.extname</h5><p>获取一个路径的后缀名部分 </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">path.<span class="title function_">extname</span>(<span class="string">&quot;index.html&quot;</span>);</span><br><span class="line"><span class="comment">// Returns: &#x27;.html&#x27;</span></span><br><span class="line"></span><br><span class="line">path.<span class="title function_">extname</span>(<span class="string">&quot;index.coffee.md&quot;</span>);</span><br><span class="line"><span class="comment">// Returns: &#x27;.md&#x27;</span></span><br><span class="line"></span><br><span class="line">path.<span class="title function_">extname</span>(<span class="string">&quot;index.&quot;</span>);</span><br><span class="line"><span class="comment">// Returns: &#x27;.&#x27;</span></span><br><span class="line"></span><br><span class="line">path.<span class="title function_">extname</span>(<span class="string">&quot;index&quot;</span>);</span><br><span class="line"><span class="comment">// Returns: &#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line">path.<span class="title function_">extname</span>(<span class="string">&quot;.index&quot;</span>);</span><br><span class="line"><span class="comment">// Returns: &#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Node-express"><a href="#Node-express" class="headerlink" title="Node + express"></a>Node + express</h3><h4 id="Express-介绍"><a href="#Express-介绍" class="headerlink" title="Express 介绍"></a>Express 介绍</h4><p>  Express 是一个基于 Node.js 平台，快速、开放、极简的 web 开发框架。 它可以轻松构建各种web应用，例如：<br>        接口服务<br>        传统的web网站<br>        开发工具集成等（例如webpack的devServer）</p>
+<p> Express本身是极简的，仅仅提供了web开发的基础功能，但是它通过中间件的方式集成了许许多多的外部插件来处理HTTP请求。<br>            body-parser：解析HTTP请求体<br>            compression：压缩HTTP响应<br>            cookie-parser：解析cookie 数据<br>            cors：处理跨域资源请求<br>            morgan：HTTP请求日志记录</p>
+<p> Express中间件的特性固然强大，但是它所提供的灵活性是一把双刃剑。<br>        它让Express本身变得更加灵活和简单<br>        缺点在于虽然有一些中间件包可以解决几乎所有问题或需求，但是挑选合适的包有时也会成为一个挑战<br>        有很多流行框架基于 Express<br>        <a target="_blank" rel="noopener" href="https://www.expressjs.com.cn/4x/api.html">Express 官网 </a></p>
+<h3 id="express-安装"><a href="#express-安装" class="headerlink" title="express 安装"></a>express 安装</h3><p> 参考文档：<a target="_blank" rel="noopener" href="http://expressjs.com/en/starter/installing.html">http://expressjs.com/en/starter/installing.html</a><br> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment"># 创建并切换到 myapp 目录</span></span><br><span class="line"><span class="built_in">mkdir</span> myapp</span><br><span class="line"><span class="built_in">cd</span> myapp</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化 package.json 文件</span></span><br><span class="line">npm init -y</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装 express 到项目中</span></span><br><span class="line">npm i express</span><br></pre></td></tr></table></figure></p>
+<h4 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h4> <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 0. 加载 Express</span></span><br><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&quot;express&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1. 调用 express() 得到一个 app</span></span><br><span class="line"><span class="comment">//    类似于 http.createServer()</span></span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">express</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 设置请求对应的处理函数</span></span><br><span class="line"><span class="comment">//    当客户端以 GET 方法请求 / 的时候就会调用第二个参数：请求处理函数</span></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&quot;/&quot;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  res.<span class="title function_">send</span>(<span class="string">&quot;hello world&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 监听端口号，启动 Web 服务</span></span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">3000</span>, <span class="function">() =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;app listening on port 3000!&quot;</span>));</span><br></pre></td></tr></table></figure>
+
+<h2 id="查看更多Express内容"><a href="#查看更多Express内容" class="headerlink" title="查看更多Express内容"></a><a href="/node-about/express">查看更多Express内容</a></h2>
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/node-about/nodeall.html" title="Nodejs内容" target="_blank" rel="external">http://example.com/node-about/nodeall.html</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="" target="_blank"><span class="text-dark">河南老表</span><small class="ml-1x">周贺涛的博客</small></a></h3>
+        <div>WEB前端。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+    <script>
+(function ($) {
+    $('.search-form').on('submit', function (e) {
+        var keyword = $('.search-form-input[name="wd"]').val();
+        window.location = 'https://www.baidu.com/s?wd=site:example.com ' + keyword;
+        return false;
+    });
+})(jQuery);
+</script>
+
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>
