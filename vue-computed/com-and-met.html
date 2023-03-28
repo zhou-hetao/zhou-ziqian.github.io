@@ -1,466 +1,440 @@
 <!DOCTYPE html>
-<html lang=zh>
+<html lang="zh-Hans">
+
 <head>
-  <meta charset="utf-8">
-  
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-  <meta name="renderer" content="webkit">
-  <meta http-equiv="Cache-Control" content="no-transform" />
-  <meta http-equiv="Cache-Control" content="no-siteapp" />
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="format-detection" content="telephone=no,email=no,adress=no">
-  <!-- Color theme for statusbar -->
-  <meta name="theme-color" content="#000000" />
-  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
-  <meta http-equiv="window-target" content="_top" />
-  
-  
-  <title>computed和method | 周贺涛的博客</title>
-  <meta name="description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687&lt;html lang&#x3D;&quot;en&quot;&gt;&amp;lt">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687&lt;html lang&#x3D;&quot;en&quot;&gt;&amp;lt">
 <meta property="og:type" content="website">
 <meta property="og:title" content="computed和method">
 <meta property="og:url" content="http://example.com/vue-computed/com-and-met.html">
 <meta property="og:site_name" content="周贺涛的博客">
 <meta property="og:description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687&lt;html lang&#x3D;&quot;en&quot;&gt;&amp;lt">
-<meta property="og:locale" content="zh_CN">
+<meta property="og:locale">
 <meta property="article:published_time" content="2022-09-12T11:23:00.620Z">
 <meta property="article:modified_time" content="2022-09-12T11:23:00.620Z">
 <meta name="twitter:card" content="summary">
-  <!-- Canonical links -->
-  <link rel="canonical" href="http://example.com/vue-computed/com-and-met.html">
-  
-    <link rel="alternate" href="/atom.xml" title="周贺涛的博客" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png" type="image/x-icon">
-  
-  
-<link rel="stylesheet" href="/css/style.css">
 
-  
-  
-  
-  
+
+<title >computed和method</title>
+
+<!-- Favicon -->
+
+    <link href='/favicon-16x16.png?v=2.0.4' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/favicon-32x32.png?v=2.0.4' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+    <link href='/apple-touch-icon.png?v=2.0.4' rel='apple-touch-icon' sizes='180x180' ></link>
+
+
+    <link href='/site.webmanifest' rel='manifest' ></link>
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"example.com","author":null,"root":"/","typed_text":null,"theme_version":"2.0.4","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"https://img2.baidu.com/it/u=3425801665,2370274849&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500","icon16":"favicon-16x16.png","icon32":"favicon-32x32.png","appleTouchIcon":"apple-touch-icon.png","webmanifest":"/site.webmanifest","visibilitychange":true,"hidden":"failure.ico","showText":"(/≧▽≦/)咦！又好了！","hideText":"(●—●)喔哟，崩溃啦！"},"i18n":{"placeholder":"搜索...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":200}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":false,"isHome":false,"postUpdate":"2022-09-12 19:23:00"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.0.4" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+ 
 <meta name="generator" content="Hexo 6.3.0"></head>
 
+<body>
 
-<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
-  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-  <div class="slimContent">
-    <div class="navbar-header">
-      
-      
-      <div class="profile-block text-center">
-        <a id="avatar" href="" target="_blank">
-          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
-        </a>
-        <h2 id="name" class="hidden-xs hidden-sm">河南老表</h2>
-        <h3 id="title" class="hidden-xs hidden-sm hidden-md">周贺涛的博客</h3>
-        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> 中国</small>
-      </div>
-      
-      <div class="search" id="search-form-wrap">
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
 
-    <form class="search-form sidebar-form">
-        <div class="input-group">
-            <input type="text" class="search-form-input form-control" placeholder="搜索" />
-            <span class="input-group-btn">
-                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
-            </span>
-        </div>
-    </form>
-    <div class="ins-search">
-  <div class="ins-search-mask"></div>
-  <div class="ins-search-container">
-    <div class="ins-input-wrapper">
-      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
-      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-    </div>
-    <div class="ins-section-wrapper">
-      <div class="ins-section-container"></div>
-    </div>
-  </div>
-</div>
-
-
-</div>
-      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
-    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
-      <ul class="nav navbar-nav main-nav menu-highlight">
-        
-        
-        <li class="menu-item menu-item-home">
-          <a href="/">
-            
-            <i class="icon icon-home-fill"></i>
-            
-            <span class="menu-title">首页</span>
-          </a>
-        </li>
-        
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories">
-            
-            <i class="icon icon-folder"></i>
-            
-            <span class="menu-title">分类</span>
-          </a>
-        </li>
-        
-      </ul>
-      
-	
-    <ul class="social-links">
-    	
-        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
-        
-        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
-        
-        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
-        
-        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
-        
-        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
-        
-    </ul>
-
-    </nav>
-  </div>
-</header>
-
-  
-    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
-  <div class="slimContent">
-    
-      <div class="widget">
-    <h3 class="widget-title">公告</h3>
-    <div class="widget-body">
-        <div id="board">
-            <div class="content">
-                <p>欢迎交流与分享经验! 本博客技术范围大致为WEB前端</p>
-            </div>
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
     </div>
 </div>
+    <!-- page preloader end -->
 
-    
-      
-
-    
-      
-
-    
-      
-    
-      
-  <div class="widget">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a><span class="archive-list-count">1</span></li></ul>
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
     </div>
-  </div>
+</div>
+    <!-- change mode preloader end -->
 
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" data-scroll-container style="opacity: 0">
+          <div data-scroll-section id="content" class="trm-scroll-section">
 
+            <div class="locomotive-scroll__sticky-target" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none;"></div>
+
+            <!-- top bar -->
+            <header class="trm-top-bar" data-scroll data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="-10">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
     
-      
-  <div class="widget">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget-body">
-      <ul class="recent-post-list list-unstyled ">
-        
-          <li>
-            
-            <div class="item-thumb">
-              <a href="/2022/11/04/hello-world/" class="thumb">
+        <img alt="logo" src="https://img2.baidu.com/it/u=3425801665,2370274849&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500">
     
     
-        <span class="thumb-image thumb-none"></span>
+        <div class="trm-logo-text">
+            WEB<span>周</span>
+        </div>
     
 </a>
-
-            </div>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
             
-            <div class="item-inner">
-              <p class="item-category">
+            <li class="menu-item-has-children ">
+                <a  href="/" target="">
+                    首页
+                </a>
                 
-              </p>
-              <p class="item-title">
-                <a href="/2022/11/04/hello-world/" class="title">欢迎来到我的博客</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2022-11-04T10:44:47.302Z" itemprop="datePublished">2022-11-04</time>
-              </p>
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/archives/" target="">
+                    归档
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+
+    
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner" data-scroll data-scroll-direction="vertical">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" data-scroll data-scroll-direction="vertical" data-scroll-speed="-3" src="/img/banner.png">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container" data-scroll data-scroll-direction="vertical" data-scroll-speed="0">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            Hi my new friend!
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            computed和method
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        vue-computed
+                                    </span
+                                ></li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <a href="#about-triger" data-scroll-to="#about-triger" data-scroll-offset="-130" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </a>
+                    <!-- scroll hint end -->
+
+                </div>
             </div>
-          </li>
-          
-      </ul>
+        </div>
     </div>
-  </div>
-  
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div id="page-sidebar" class="col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    
 
+<div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card" data-scroll data-scroll-repeat data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="60"> 
     
-  </div>
-</aside>
-
-  
-  
-<main class="main" role="main">
-  <div class="content">
-  <article id="page-" class="article article-type-page" itemscope itemtype="http://schema.org/BlogPosting">
-    
-    <div class="article-header">
-      
-        
-  
-    <h1 class="article-title" itemprop="name">
-      computed和method
-    </h1>
-  
-
-      
-      <div class="article-meta">
-        <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/vue-computed/com-and-met.html" class="article-date">
-	  <time datetime="2022-09-12T11:23:00.620Z" itemprop="datePublished">2022-09-12</time>
-	</a>
-</span>
-        
-        
-
-        
-
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/vue-computed/com-and-met.html#comments" class="article-comment-link">评论</a></span>
-        
-      </div>
+        <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="/img/avatar.jpg">
     </div>
-    <div class="article-entry marked-body" itemprop="articleBody">
-      
-        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line">&lt;html lang=<span class="string">&quot;en&quot;</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;<span class="built_in">head</span>&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">&quot;viewport&quot;</span> content=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span><br><span class="line">    &lt;meta http-equiv=<span class="string">&quot;X-UA-Compatible&quot;</span> content=<span class="string">&quot;ie=edge&quot;</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;script src=<span class="string">&quot;https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div <span class="built_in">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">        &lt;input <span class="built_in">type</span>=<span class="string">&quot;text&quot;</span> v-model=<span class="string">&#x27;firstName&#x27;</span>&gt;</span><br><span class="line">        &lt;input <span class="built_in">type</span>=<span class="string">&quot;text&quot;</span> v-model=<span class="string">&#x27;lastName&#x27;</span>&gt;</span><br><span class="line">        &lt;!-- 插值表达式的实现 简单的js逻辑表达式 --&gt;</span><br><span class="line">        &lt;!-- &lt;span&gt;&#123;&#123;firstName +<span class="string">&#x27;-&#x27;</span>+ lastName&#125;&#125;&lt;/span&gt; --&gt;</span><br><span class="line">        &lt;!-- &lt;span&gt;&#123;&#123;firstName&#125;&#125; - &#123;&#123;lastName&#125;&#125; &lt;/span&gt; --&gt;</span><br><span class="line"></span><br><span class="line">        &lt;!-- 更复杂的通过方法的实现 </span><br><span class="line">        methods中的方法调用一次就会执行一次 如果数据不需要更新</span><br><span class="line">        会造成性能的浪费--&gt;</span><br><span class="line">        &lt;!-- &lt;span&gt;&#123;&#123;fullName()&#125;&#125; &lt;/span&gt;</span><br><span class="line">        &lt;span&gt;&#123;&#123;fullName()&#125;&#125; &lt;/span&gt;</span><br><span class="line">        &lt;span&gt;&#123;&#123;fullName()&#125;&#125; &lt;/span&gt;</span><br><span class="line">        &lt;span&gt;&#123;&#123;fullName()&#125;&#125; &lt;/span&gt;</span><br><span class="line">        &lt;span&gt;&#123;&#123;fullName()&#125;&#125; &lt;/span&gt; --&gt;</span><br><span class="line"></span><br><span class="line">        &lt;!-- &lt;span&gt;&#123;&#123;fullName&#125;&#125;&lt;/span&gt;</span><br><span class="line">        &lt;span&gt;&#123;&#123;fullName&#125;&#125;&lt;/span&gt;</span><br><span class="line">        &lt;span&gt;&#123;&#123;fullName&#125;&#125;&lt;/span&gt;</span><br><span class="line">        &lt;span&gt;&#123;&#123;fullName&#125;&#125;&lt;/span&gt; --&gt;</span><br><span class="line">        &lt;span&gt;&#123;&#123;fullName&#125;&#125;&lt;/span&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        var vm = new Vue(&#123;</span><br><span class="line">            el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">            data: &#123;</span><br><span class="line">                // 定义到data中的数据默认会被响应式监听</span><br><span class="line">                firstName: <span class="string">&#x27;张&#x27;</span>,</span><br><span class="line">                lastName: <span class="string">&#x27;三&#x27;</span></span><br><span class="line">            &#125;,</span><br><span class="line">            methods: &#123;</span><br><span class="line">                // <span class="function"><span class="title">fullName</span></span>() &#123;</span><br><span class="line">                //     console.log(111);</span><br><span class="line">                //     <span class="built_in">return</span> this.firstName + <span class="string">&#x27;-&#x27;</span> + this.lastName</span><br><span class="line">                // &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            // 计算属性computed: 计算属性的值本身不存在 是需要通过计算得到的 </span><br><span class="line">            // 底层也是通过object.defineProperty来实现的</span><br><span class="line">            // computed 与 methods的区别</span><br><span class="line">            // 1、是否存在缓存: methods调用一次执行一次</span><br><span class="line">            // computed第一次调用时会将结果缓存 (有缓存)、后续调用在所依赖的数据不发生变化的前提下 直接返回缓存的结果 =&gt; 复用率高 提升性能</span><br><span class="line">            // 2、调用方式不同: methods使用时，一般情况需要加括号，而computed则不需要</span><br><span class="line">            // 3、绑定方式不同: methods是单向数据绑定 只有getter, computed是双向数据绑定, 有setter和getter </span><br><span class="line"></span><br><span class="line">            // 使用场景</span><br><span class="line">            // 某个属性的值需要来自多个属性的简单计算或者复杂逻辑计算得出的值时, 推荐使用computed属性, 比如购物车的总价计算</span><br><span class="line"></span><br><span class="line">            computed: &#123;</span><br><span class="line">                // 完整写法</span><br><span class="line">                fullName: &#123;</span><br><span class="line">                    // get作用: 当使用到fullName的时候 默认会调用get方法</span><br><span class="line">                    // get特点: </span><br><span class="line">                    // 1、初次使用计算属性的时候会执行</span><br><span class="line">                    // 2、当依赖的响应式数据发生变化的时候会执行</span><br><span class="line">                    <span class="function"><span class="title">get</span></span>() &#123;</span><br><span class="line">                        console.log(111);</span><br><span class="line">                        <span class="built_in">return</span> this.firstName + <span class="string">&#x27;-&#x27;</span> + this.lastName</span><br><span class="line">                    &#125;,</span><br><span class="line">                    // 如果需要修改计算属性 需要提供一个<span class="built_in">set</span>方法</span><br><span class="line">                    // 并且这个<span class="built_in">set</span>方法中要能够引起依赖的数据的变化</span><br><span class="line">                    <span class="built_in">set</span>(val) &#123;</span><br><span class="line">                        <span class="built_in">let</span> arr = val.split(<span class="string">&#x27;-&#x27;</span>)</span><br><span class="line">                        this.firstName = arr[0]</span><br><span class="line">                        this.lastName = arr[1]</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;,</span><br><span class="line">                // 简写</span><br><span class="line">                // <span class="function"><span class="title">fullName</span></span>()&#123;</span><br><span class="line">                //     <span class="built_in">return</span> this.firstName + <span class="string">&#x27;-&#x27;</span> + this.lastName</span><br><span class="line">                // &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <div class="article-footer">
-      <blockquote class="mt-2x">
-  <ul class="post-copyright list-unstyled">
+    <h5 class="trm-name trm-mb-15">
+        周贺涛的博客
+    </h5>
     
-    <li class="post-copyright-link hidden-xs">
-      <strong>本文链接：</strong>
-      <a href="http://example.com/vue-computed/com-and-met.html" title="computed和method" target="_blank" rel="external">http://example.com/vue-computed/com-and-met.html</a>
-    </li>
+</div>
+<!-- card header end -->
+        <!-- sidebar social -->
+
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<div class="trm-social">
     
-    <li class="post-copyright-license">
-      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
-    </li>
-  </ul>
-</blockquote>
-
-
-<div class="panel panel-default panel-badger">
-  <div class="panel-body">
-    <figure class="media">
-      <div class="media-left">
-        <a href="" target="_blank" class="img-burn thumb-sm visible-lg">
-          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        <a href="https://github.com/zhou-ziqian/zhou-ziqian.github.io" title="github" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-github"></i>
         </a>
-      </div>
-      <div class="media-body">
-        <h3 class="media-heading"><a href="" target="_blank"><span class="text-dark">河南老表</span><small class="ml-1x">周贺涛的博客</small></a></h3>
-        <div>WEB前端。</div>
-      </div>
-    </figure>
-  </div>
+    
+        <a href="https://gitee.com" title="gitee" rel="nofollow" target="_blank">
+            <i class="iconfont iconfont cg-gitee"></i>
+        </a>
+    
 </div>
 
-
-    </div>
-  </article>
-  
+<!-- sidebar social end -->
+        <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
     
-  <section id="comments">
-  	
-      <div id="vcomments"></div>
-    
-  </section>
-
-
-  
-</div>
-
-  <nav class="bar bar-footer clearfix" data-stick-bottom>
-  <div class="bar-inner">
-  
-  
-  <!-- Button trigger modal -->
-  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
-  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
-    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
-  </div> -->
-  
-  
-  <div class="bar-right">
-    
-    <div class="share-component" data-sites="weibo,qq,wechat" data-mobile-sites="weibo,qq,qzone"></div>
-    
-  </div>
-  </div>
-</nav>
-  
-<!-- Modal -->
-<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content donate">
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      <div class="modal-body">
-        <div class="donate-box">
-          <div class="donate-head">
-            <p>感谢您的支持，我会继续努力的!</p>
-          </div>
-          <div class="tab-content">
-            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
-              <div class="donate-payimg">
-                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
-              </div>
-              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
-              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+        <li>
+            <div class="trm-label">
+                地址:
             </div>
-            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
-              <div class="donate-payimg">
-                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
-              </div>
-              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
-              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            <div class="trm-label trm-label-light">
+                北京昌平
             </div>
-          </div>
-          <div class="donate-footer">
-            <ul class="nav nav-tabs nav-justified" role="tablist">
-              <li role="presentation" class="active">
-                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
-              </li>
-              <li role="presentation" class="">
-                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-</main>
-
-  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
-	
-	
-    <ul class="social-links">
-    	
-        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
-        
-        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
-        
-        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
-        
-        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
-        
-        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
-        
-    </ul>
-
-    <div class="copyright">
-    	
-        <div class="publishby">
-        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
-        </div>
-    </div>
-</footer>
-  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
-<script>
-window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
-</script>
-
-<script src="/js/plugin.min.js"></script>
-
-
-<script src="/js/application.js"></script>
-
-
-    <script>
-(function (window) {
-    var INSIGHT_CONFIG = {
-        TRANSLATION: {
-            POSTS: '文章',
-            PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
-            UNTITLED: '(未命名)',
-        },
-        ROOT_URL: '/',
-        CONTENT_URL: '/content.json',
-    };
-    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-})(window);
-</script>
-
-<script src="/js/insight.js"></script>
-
-
-
-    <script>
-(function ($) {
-    $('.search-form').on('submit', function (e) {
-        var keyword = $('.search-form-input[name="wd"]').val();
-        window.location = 'https://www.baidu.com/s?wd=site:example.com ' + keyword;
-        return false;
-    });
-})(jQuery);
-</script>
-
-
-
-
-
-   
+        </li>
     
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/valine"></script>
-  <script type="text/javascript">
-  var GUEST = ['nick', 'mail', 'link'];
-  var meta = 'nick,mail,link';
-  meta = meta.split(',').filter(function(item) {
-    return GUEST.indexOf(item) > -1;
-  });
-  new Valine({
-    el: '#vcomments',
-    verify: false,
-    notify: false,
-    appId: '',
-    appKey: '',
-    placeholder: 'Just go go',
-    avatar: 'mm',
-    meta: meta,
-    pageSize: '10' || 10,
-    visitor: false
-  });
-  </script>
+        <li>
+            <div class="trm-label">
+                年龄:
+            </div>
+            <div class="trm-label trm-label-light">
+                22
+            </div>
+        </li>
+    
+</ul>
+<!-- info end -->
+
+        
+    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+    <!-- action button -->
+    <div class="text-center">
+        <a href="mailto:admin@imalun.com" class="trm-btn">
+            联系我
+            <i class="iconfont far fa-envelope"></i>
+        </a>
+    </div>
+    <!-- action button end -->
+
+    
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div id="page-content" class="col-lg-8">
+                <div class="trm-content" id="trm-content">
+                    <div data-scroll data-scroll-repeat data-scroll-offset="500" id="about-triger"></div>
+
+                    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line">&lt;html lang=<span class="string">&quot;en&quot;</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;<span class="built_in">head</span>&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">&quot;viewport&quot;</span> content=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span><br><span class="line">    &lt;meta http-equiv=<span class="string">&quot;X-UA-Compatible&quot;</span> content=<span class="string">&quot;ie=edge&quot;</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;script src=<span class="string">&quot;https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div <span class="built_in">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">        &lt;input <span class="built_in">type</span>=<span class="string">&quot;text&quot;</span> v-model=<span class="string">&#x27;firstName&#x27;</span>&gt;</span><br><span class="line">        &lt;input <span class="built_in">type</span>=<span class="string">&quot;text&quot;</span> v-model=<span class="string">&#x27;lastName&#x27;</span>&gt;</span><br><span class="line">        &lt;!-- 插值表达式的实现 简单的js逻辑表达式 --&gt;</span><br><span class="line">        &lt;!-- &lt;span&gt;&#123;&#123;firstName +<span class="string">&#x27;-&#x27;</span>+ lastName&#125;&#125;&lt;/span&gt; --&gt;</span><br><span class="line">        &lt;!-- &lt;span&gt;&#123;&#123;firstName&#125;&#125; - &#123;&#123;lastName&#125;&#125; &lt;/span&gt; --&gt;</span><br><span class="line"></span><br><span class="line">        &lt;!-- 更复杂的通过方法的实现 </span><br><span class="line">        methods中的方法调用一次就会执行一次 如果数据不需要更新</span><br><span class="line">        会造成性能的浪费--&gt;</span><br><span class="line">        &lt;!-- &lt;span&gt;&#123;&#123;fullName()&#125;&#125; &lt;/span&gt;</span><br><span class="line">        &lt;span&gt;&#123;&#123;fullName()&#125;&#125; &lt;/span&gt;</span><br><span class="line">        &lt;span&gt;&#123;&#123;fullName()&#125;&#125; &lt;/span&gt;</span><br><span class="line">        &lt;span&gt;&#123;&#123;fullName()&#125;&#125; &lt;/span&gt;</span><br><span class="line">        &lt;span&gt;&#123;&#123;fullName()&#125;&#125; &lt;/span&gt; --&gt;</span><br><span class="line"></span><br><span class="line">        &lt;!-- &lt;span&gt;&#123;&#123;fullName&#125;&#125;&lt;/span&gt;</span><br><span class="line">        &lt;span&gt;&#123;&#123;fullName&#125;&#125;&lt;/span&gt;</span><br><span class="line">        &lt;span&gt;&#123;&#123;fullName&#125;&#125;&lt;/span&gt;</span><br><span class="line">        &lt;span&gt;&#123;&#123;fullName&#125;&#125;&lt;/span&gt; --&gt;</span><br><span class="line">        &lt;span&gt;&#123;&#123;fullName&#125;&#125;&lt;/span&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        var vm = new Vue(&#123;</span><br><span class="line">            el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">            data: &#123;</span><br><span class="line">                // 定义到data中的数据默认会被响应式监听</span><br><span class="line">                firstName: <span class="string">&#x27;张&#x27;</span>,</span><br><span class="line">                lastName: <span class="string">&#x27;三&#x27;</span></span><br><span class="line">            &#125;,</span><br><span class="line">            methods: &#123;</span><br><span class="line">                // <span class="function"><span class="title">fullName</span></span>() &#123;</span><br><span class="line">                //     console.log(111);</span><br><span class="line">                //     <span class="built_in">return</span> this.firstName + <span class="string">&#x27;-&#x27;</span> + this.lastName</span><br><span class="line">                // &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            // 计算属性computed: 计算属性的值本身不存在 是需要通过计算得到的 </span><br><span class="line">            // 底层也是通过object.defineProperty来实现的</span><br><span class="line">            // computed 与 methods的区别</span><br><span class="line">            // 1、是否存在缓存: methods调用一次执行一次</span><br><span class="line">            // computed第一次调用时会将结果缓存 (有缓存)、后续调用在所依赖的数据不发生变化的前提下 直接返回缓存的结果 =&gt; 复用率高 提升性能</span><br><span class="line">            // 2、调用方式不同: methods使用时，一般情况需要加括号，而computed则不需要</span><br><span class="line">            // 3、绑定方式不同: methods是单向数据绑定 只有getter, computed是双向数据绑定, 有setter和getter </span><br><span class="line"></span><br><span class="line">            // 使用场景</span><br><span class="line">            // 某个属性的值需要来自多个属性的简单计算或者复杂逻辑计算得出的值时, 推荐使用computed属性, 比如购物车的总价计算</span><br><span class="line"></span><br><span class="line">            computed: &#123;</span><br><span class="line">                // 完整写法</span><br><span class="line">                fullName: &#123;</span><br><span class="line">                    // get作用: 当使用到fullName的时候 默认会调用get方法</span><br><span class="line">                    // get特点: </span><br><span class="line">                    // 1、初次使用计算属性的时候会执行</span><br><span class="line">                    // 2、当依赖的响应式数据发生变化的时候会执行</span><br><span class="line">                    <span class="function"><span class="title">get</span></span>() &#123;</span><br><span class="line">                        console.log(111);</span><br><span class="line">                        <span class="built_in">return</span> this.firstName + <span class="string">&#x27;-&#x27;</span> + this.lastName</span><br><span class="line">                    &#125;,</span><br><span class="line">                    // 如果需要修改计算属性 需要提供一个<span class="built_in">set</span>方法</span><br><span class="line">                    // 并且这个<span class="built_in">set</span>方法中要能够引起依赖的数据的变化</span><br><span class="line">                    <span class="built_in">set</span>(val) &#123;</span><br><span class="line">                        <span class="built_in">let</span> arr = val.split(<span class="string">&#x27;-&#x27;</span>)</span><br><span class="line">                        this.firstName = arr[0]</span><br><span class="line">                        this.lastName = arr[1]</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;,</span><br><span class="line">                // 简写</span><br><span class="line">                // <span class="function"><span class="title">fullName</span></span>()&#123;</span><br><span class="line">                //     <span class="built_in">return</span> this.firstName + <span class="string">&#x27;-&#x27;</span> + this.lastName</span><br><span class="line">                // &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-scroll-animation" data-scroll data-scroll-offset="50">
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>© 2020- 2023</span>
+            <span class="footer-separator"data-separator=" · "></span>
+            <span class="trm-accent-color">周贺涛的博客</span>
+        </div>
+    
+
+      
 
      
 
+     
+</footer>
+ 
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- body end -->
+
+            <div class="trm-fixed-container" data-scroll data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="-10">
+    
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="回到顶部">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+          </div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+
+  </div>
+  <!-- app wrapper end -->
+
+  
+  <!-- Plugin -->
 
 
 
 
+    
+    
+<script src="https://unpkg.com/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
 
+    
+<script src="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+
+    
+
+    <!-- 数学公式 -->
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+    
+
+
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+
+    <!-- Service Worker -->
+    
+    <!-- baidu push -->
+    
+
+
+<script id="async-script" src="/js/main.js?v=2.0.4"></script>
 
 </body>
+
 </html>
