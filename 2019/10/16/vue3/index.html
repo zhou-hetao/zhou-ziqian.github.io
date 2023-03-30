@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="vue3简介2020年9月18日，Vue.js发布3.0版本，代号：One Piece（海贼王）耗时2年多、2600+次提交、30+个RFC、600+次PR、99位贡献者github上的tags地址：https:&#x2F;&#x2F;github.com&#x2F;vuejs&#x2F;vue-next&#x2F;releases&#x2F;tag&#x2F;v3.0.0 vue3带来了什么 1.性能的提升打包大小减少41% 初次渲染快55%, 更新渲染快133%">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue3内容">
+<meta property="og:url" content="http://example.com/2019/10/16/vue3/index.html">
+<meta property="og:site_name" content="周贺涛的博客">
+<meta property="og:description" content="vue3简介2020年9月18日，Vue.js发布3.0版本，代号：One Piece（海贼王）耗时2年多、2600+次提交、30+个RFC、600+次PR、99位贡献者github上的tags地址：https:&#x2F;&#x2F;github.com&#x2F;vuejs&#x2F;vue-next&#x2F;releases&#x2F;tag&#x2F;v3.0.0 vue3带来了什么 1.性能的提升打包大小减少41% 初次渲染快55%, 更新渲染快133%">
+<meta property="og:locale">
+<meta property="article:published_time" content="2019-10-16T02:46:27.000Z">
+<meta property="article:modified_time" content="2023-03-30T03:45:11.715Z">
+<meta name="twitter:card" content="summary">
+
+    <meta name="keywords" content="admin-template,vue,element,后台模板">
+
+
+<title >vue3内容</title>
+
+<!-- Favicon -->
+
+    <link href='/favicon-16x16.png?v=2.0.4' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/favicon-32x32.png?v=2.0.4' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+    <link href='/apple-touch-icon.png?v=2.0.4' rel='apple-touch-icon' sizes='180x180' ></link>
+
+
+    <link href='/site.webmanifest' rel='manifest' ></link>
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"example.com","author":null,"root":"/","typed_text":null,"theme_version":"2.0.4","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"https://img2.baidu.com/it/u=3425801665,2370274849&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500","icon16":"favicon-16x16.png","icon32":"favicon-32x32.png","appleTouchIcon":"apple-touch-icon.png","webmanifest":"/site.webmanifest","visibilitychange":true,"hidden":"failure.ico","showText":"(/≧▽≦/)咦！又好了！","hideText":"(●—●)喔哟，崩溃啦！"},"i18n":{"placeholder":"搜索...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":200},"search":{"enable":true,"type":"local","href":"https://www.google.com/search?q=site:","domain":"www.hetao.asia","path":"search.xml"}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2023-03-30 11:45:11"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.0.4" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+ 
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" data-scroll-container style="opacity: 0">
+          <div data-scroll-section id="content" class="trm-scroll-section">
+
+            <div class="locomotive-scroll__sticky-target" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none;"></div>
+
+            <!-- top bar -->
+            <header class="trm-top-bar" data-scroll data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="-10">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
+    
+        <img alt="logo" src="https://img2.baidu.com/it/u=3425801665,2370274849&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500">
+    
+    
+        <div class="trm-logo-text">
+            WEB<span>周</span>
+        </div>
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/" target="">
+                    首页
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/archives/" target="">
+                    归档
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+    
+    <div id="trm-search-btn" class="trm-search-btn">
+        <i class="iconfont fas fa-search"></i>
+    </div>
+     
+
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner" data-scroll data-scroll-direction="vertical">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" data-scroll data-scroll-direction="vertical" data-scroll-speed="-3" src="https://pic1.zhimg.com/v2-b3c2c6745b9421a13a3c4706b19223b3_r.jpg">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container" data-scroll data-scroll-direction="vertical" data-scroll-speed="0">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            Hi my new friend!
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            vue3内容
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        2019
+                                    </span
+                                ></li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <a href="#about-triger" data-scroll-to="#about-triger" data-scroll-offset="-130" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </a>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div id="page-sidebar" class="col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    
+
+<div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card" data-scroll data-scroll-repeat data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="60"> 
+    
+        <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="/img/avatar.jpg">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        周贺涛的博客
+    </h5>
+    
+</div>
+<!-- card header end -->
+        <!-- sidebar social -->
+
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<div class="trm-social">
+    
+        <a href="https://github.com/zhou-ziqian/zhou-ziqian.github.io" title="github" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-github"></i>
+        </a>
+    
+        <a href="https://gitee.com" title="gitee" rel="nofollow" target="_blank">
+            <i class="iconfont iconfont cg-gitee"></i>
+        </a>
+    
+</div>
+
+<!-- sidebar social end -->
+        <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                地址:
+            </div>
+            <div class="trm-label trm-label-light">
+                北京昌平
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                年龄:
+            </div>
+            <div class="trm-label trm-label-light">
+                22
+            </div>
+        </li>
+    
+</ul>
+<!-- info end -->
+
+        
+    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+    <!-- action button -->
+    <div class="text-center">
+        <a href="mailto:admin@imalun.com" class="trm-btn">
+            联系我
+            <i class="iconfont far fa-envelope"></i>
+        </a>
+    </div>
+    <!-- action button end -->
+
+    
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div id="page-content" class="col-lg-8">
+                <div class="trm-content" id="trm-content">
+                    <div data-scroll data-scroll-repeat data-scroll-offset="500" id="about-triger"></div>
+
+                    <div id="post-info" class="row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            10/16
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            10:46
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <h3 id="vue3简介"><a href="#vue3简介" class="headerlink" title="vue3简介"></a>vue3简介</h3><p>2020年9月18日，Vue.js发布3.0版本，代号：One Piece（海贼王）<br>耗时2年多、2600+次提交、30+个RFC、600+次PR、99位贡献者<br>github上的tags地址：<a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-next/releases/tag/v3.0.0">https://github.com/vuejs/vue-next/releases/tag/v3.0.0</a></p>
+<h4 id="vue3带来了什么"><a href="#vue3带来了什么" class="headerlink" title="vue3带来了什么"></a>vue3带来了什么</h4><p> 1.性能的提升<br>打包大小减少41%</p>
+<p>初次渲染快55%, 更新渲染快133%</p>
+<p>内存减少54%</p>
+<p>…</p>
+<p>2.源码的升级<br>使用Proxy代替defineProperty实现响应式</p>
+<p>重写虚拟DOM的实现和Tree-Shaking</p>
+<p>…</p>
+<p>3.拥抱TypeScript<br>Vue3可以更好的支持TypeScript</p>
+<h4 id="vue3新的特性"><a href="#vue3新的特性" class="headerlink" title="vue3新的特性"></a>vue3新的特性</h4><p> Composition API（组合API）</p>
+<p>setup配置<br>ref与reactive<br>watch与watchEffect<br>provide与inject<br>…<br>新的内置组件</p>
+<p>Fragment<br>Teleport<br>Suspense<br>其他改变</p>
+<p>新的生命周期钩子<br>data 选项应始终被声明为一个函数<br>移除keyCode支持作为 v-on 的修饰符<br>……</p>
+<h4 id="创建vue3项目"><a href="#创建vue3项目" class="headerlink" title="创建vue3项目"></a>创建vue3项目</h4> <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> ## 查看@vue/cli版本，确保@vue/cli版本在<span class="number">4.5</span><span class="number">.0</span>以上</span><br><span class="line">vue --version</span><br><span class="line">## 安装或者升级你的@vue/cli</span><br><span class="line">npm install -g @vue/cli</span><br><span class="line">## 创建</span><br><span class="line">vue create vue3_study</span><br><span class="line">## 启动</span><br><span class="line">cd vue3_study</span><br><span class="line">npm run serve</span><br></pre></td></tr></table></figure>
+
+<h3 id="vue2-Options-API的弊端"><a href="#vue2-Options-API的弊端" class="headerlink" title="vue2 Options API的弊端"></a>vue2 Options API的弊端</h3><p> 在Vue2中，我们编写组件的方式是 OptionsAPI：</p>
+<p>Options API的一大特点就是在对应的属性中编写对应的功能模块；</p>
+<p>比如data定义数据、methods中定义方法、computed中定义计算属性、watch中监听属性改变，也包括生命 周期钩子；<br>但是这种代码有一个很大的弊端：</p>
+<p>当我们实现某一个功能时，这个功能对应的代码逻辑会被拆分到各个属性中；</p>
+<p>当我们组件变得更大、更复杂时，逻辑关注点的列表就会增长，那么同一个功能的逻辑就会被拆分的很分散；</p>
+<p>尤其对于那些一开始没有编写这些组件的人来说，这个组件的代码是难以阅读和理解的（阅读组件的其他人）；</p>
+<h3 id="setup函数"><a href="#setup函数" class="headerlink" title="setup函数"></a>setup函数</h3><p>我们先来研究一个setup函数的参数，它主要有两个参数：</p>
+<p>第一个参数：props</p>
+<p>第二个参数：context</p>
+<p>props非常好理解，它其实就是父组件传递过来的属性会被放到props对象中，我们在setup中如果需要使用，那么就可以直接通过props参数获取：</p>
+<p>对于定义props的类型，我们还是和之前的规则是一样的，在props选项中定义；</p>
+<p>并且在template中依然是可以正常去使用props中的属性，比如message；</p>
+<p>如果我们在setup函数中想要使用props，那么不可以通过 this 去获取（后面我会讲到为什么）；</p>
+<p>因为props有直接作为参数传递到setup函数中，所以我们可以直接通过参数来使用即可；</p>
+<p>另外一个参数是context，我们也称之为是一个SetupContext，它里面包含三个属性：</p>
+<p>attrs：所有的非prop的attribute；</p>
+<p>slots：父组件传递过来的插槽（这个在以渲染函数返回时会有作用，后面会讲到）；</p>
+<p>emit：当我们组件内部需要发出事件时会用到emit（因为我们不能访问this，所以不可以通过 this.$emit发出事件）；</p>
+<p>setup函数的返回值<br>setup函数的两种返回值：</p>
+<p>若返回一个对象，则对象中的属性、方法, 在模板中均可以直接使用。（重点关注！）<br>若返回一个渲染函数：则可以自定义渲染内容</p>
+<h3 id="reactive函数"><a href="#reactive函数" class="headerlink" title="reactive函数"></a>reactive函数</h3><p>作用: 定义一个对象类型的响应式数据（基本类型不要用它，控制台会报警告，要用ref函数）<br>语法：const 代理对象&#x3D; reactive(源对象)接收一个对象（或数组），返回一个代理对象（Proxy的实例对象，简称proxy对象）<br>reactive定义的响应式数据是“深层次的”。<br>内部基于 ES6 的 Proxy 实现，通过代理对象操作源对象内部数据进行操作。</p>
+<h3 id="ref函数"><a href="#ref函数" class="headerlink" title="ref函数"></a>ref函数</h3><p>作用: 定义一个响应式的数据<br>语法: const xxx &#x3D; ref(initValue)<br>创建一个包含响应式数据的引用对象（reference对象，简称ref对象）, 其内部的值是在ref.value属性中被维护的 。<br>JS中操作数据： xxx.value<br>模板中读取数据: vue自动帮我们进行解包操作，不需要.value，直接：<div></div><br>备注：<br>接收的数据可以是：基本类型、也可以是对象类型。<br>基本类型的数据：响应式依然是靠Object.defineProperty()的get与set完成的。<br>对象类型的数据：内部 求助 了Vue3.0中的一个新函数—— reactive函数。</p>
+<h4 id="toRefs"><a href="#toRefs" class="headerlink" title="toRefs"></a>toRefs</h4><p>  如果我们使用ES6的解构语法，对reactive返回的对象进行解构获取值，那么之后无论是修改解构后的变量<strong>，还是修改reactive返回的state对象，</strong>数据都不再是响应式的：Vue为我们提供了一个toRefs的函数，可以将reactive返回的对象中的属性都转成ref；</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123;name,age&#125; = <span class="title function_">toRefs</span>(state)</span><br></pre></td></tr></table></figure>
+<p>那么我们再次进行结构出来的 name 和 age 本身都是 ref的；<br>这种做法相当于已经在state.name和ref.value之间建立了 链接，任何一个修改都会引起另外一个变化；</p>
+<h4 id="toRef"><a href="#toRef" class="headerlink" title="toRef"></a>toRef</h4> <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">const</span> name= <span class="title function_">toRef</span>(state, <span class="string">&#x27;name &#x27;</span> );<span class="keyword">const</span> &#123;age&#125; = state;</span><br><span class="line"><span class="keyword">const</span> <span class="title function_">changeName</span> = (<span class="params"></span>)=&gt;state.<span class="property">name</span> = <span class="string">&quot;coderwhy&quot;</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>  如果我们只希望转换一个reactive对象中的属性为ref, 那么可以使用toRef的方法<br>  应用: 要将响应式对象中的某个属性单独提供给外部使用时。</p>
+<h4 id="ref-的其他API"><a href="#ref-的其他API" class="headerlink" title="ref 的其他API"></a>ref 的其他API</h4><p>unref<br>如果我们想要获取一个ref引用中的value，那么也可以通过unref方法：</p>
+<p>如果参数是一个 ref，则返回内部值，否则返回参数本身；</p>
+<p>这是 val &#x3D; isRef(val) ? val.value : val 的语法糖函数；</p>
+<p>isRef<br>判断值是否是一个ref对象。</p>
+<p>shallowRef<br>创建一个浅层的ref对象；</p>
+<p>triggerRef<br>手动触发和 shallowRef 相关联的副作用<br>shallowRef<br>shallowRef：只处理基本数据类型的响应式, 不进行对象的响应式处理。</p>
+<p>什么时候使用?</p>
+<p>如果有一个对象数据，结构比较深, 但变化时只是外层属性变化 &#x3D;&#x3D;&#x3D;&gt; shallowReactive。<br>如果有一个对象数据，后续功能不会修改该对象中的属性，而是产生新的对象来替换 &#x3D;&#x3D;&#x3D;&gt; shallowRef。<br>customRef<br>创建一个自定义的ref，并对其依赖项跟踪和更新触发进行显示控制：</p>
+<p>它需要一个工厂函数，该函数接受 track 和 trigger 函数作为参数；</p>
+<p>并且应该返回一个带有 get 和 set 的对象；</p>
+<h4 id="ref-amp-reactive"><a href="#ref-amp-reactive" class="headerlink" title="ref &amp; reactive"></a>ref &amp; reactive</h4><p>从定义数据角度对比：<br>ref用来定义：基本类型数据。<br>reactive用来定义：对象（或数组）类型数据。<br>备注：ref也可以用来定义对象（或数组）类型数据, 它内部会自动通过reactive转为代理对象。<br>从原理角度对比：<br>ref通过Object.defineProperty()的get与set来实现响应式（数据劫持）。<br>reactive通过使用Proxy来实现响应式（数据劫持）, 并通过Reflect操作源对象内部的数据。<br>从使用角度对比：<br>ref定义的数据：操作数据需要.value，读取数据时模板中直接读取不需要.value。<br>reactive定义的数据：操作数据与读取数据：均不需要.value。</p>
+<h3 id="响应式原理"><a href="#响应式原理" class="headerlink" title="响应式原理"></a>响应式原理</h3><h4 id="vu2"><a href="#vu2" class="headerlink" title="vu2"></a>vu2</h4> <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">// vue2.x 双向数据绑定原理是通过Objcet.defineProperty来实现的</span></span><br><span class="line"><span class="comment">// 这种方式有缺点: 数组的长度 数组的内容发生变化检测不到</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;zs&#x27;</span>,</span><br><span class="line">  <span class="attr">age</span>: <span class="number">18</span>,</span><br><span class="line">  <span class="attr">phone</span>: &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;iphone&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// let obj = [1, 2, 3, 4, 5]</span></span><br><span class="line"><span class="comment">// 视图更新的方法</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">render</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;视图更新了 ~&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> methods = [<span class="string">&#x27;push&#x27;</span>, <span class="string">&#x27;pop&#x27;</span>, <span class="string">&#x27;shift&#x27;</span>, <span class="string">&#x27;unshift&#x27;</span>, <span class="string">&#x27;sort&#x27;</span>, <span class="string">&#x27;reverse&#x27;</span>, <span class="string">&#x27;splice&#x27;</span>]</span><br><span class="line"><span class="comment">// 将数组的原型保存一份</span></span><br><span class="line"><span class="keyword">let</span> arrProto = <span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span></span><br><span class="line"><span class="comment">// 创建原型 将数组原型拷贝一份</span></span><br><span class="line"><span class="keyword">let</span> proto = <span class="title class_">Object</span>.<span class="title function_">create</span>(arrProto)</span><br><span class="line"><span class="comment">// 重写数组的方法</span></span><br><span class="line">methods.<span class="title function_">forEach</span>(<span class="function"><span class="params">method</span> =&gt;</span> &#123;</span><br><span class="line">  proto[method] = <span class="keyword">function</span> (<span class="params"></span>) &#123; <span class="comment">// AOP 面向切面编程</span></span><br><span class="line">    <span class="comment">// 改变了数组的数据</span></span><br><span class="line">    arrProto[method].<span class="title function_">call</span>(<span class="variable language_">this</span>, ...<span class="variable language_">arguments</span>)</span><br><span class="line">    <span class="comment">// 重新渲染视图</span></span><br><span class="line">    <span class="title function_">render</span>()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 观察者模式 </span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">observe</span>(<span class="params">obj</span>) &#123;</span><br><span class="line">  <span class="comment">// 判断一个对象是不是数组</span></span><br><span class="line">  <span class="comment">// if(Object.prototype.toString.call(obj) === &#x27;[object Array]&#x27;)&#123;</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="title class_">Array</span>.<span class="title function_">isArray</span>(obj)) &#123;</span><br><span class="line">    <span class="comment">// 让观测的对象的原型和我们自己重写的原型建立关系</span></span><br><span class="line">    obj.<span class="property">__proto__</span> = proto</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 如果观察的是一个对象的话 对其属性进行响应式监听(set、get)</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>(obj) === <span class="string">&#x27;[object Object]&#x27;</span>) &#123;</span><br><span class="line">    <span class="comment">// 取出对象中的每一个键和值</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> obj) &#123;</span><br><span class="line">      <span class="comment">// 调用响应式处理函数</span></span><br><span class="line">      <span class="title function_">defineReactive</span>(obj, key, obj[key])</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 观察obj对象</span></span><br><span class="line"><span class="title function_">observe</span>(obj)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 响应式处理</span></span><br><span class="line"><span class="comment">// Object.defineProperty() 方法会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性，并返回此对象。</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">defineReactive</span>(<span class="params">obj, key, val</span>) &#123;</span><br><span class="line">  <span class="comment">// 检测对象的属性值是否还是对象</span></span><br><span class="line">  <span class="title function_">observe</span>(val)</span><br><span class="line">  <span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(obj, key, &#123;</span><br><span class="line">    <span class="comment">// 获取</span></span><br><span class="line">    <span class="title function_">get</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> val</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 设置</span></span><br><span class="line">    <span class="title function_">set</span>(<span class="params">newVal</span>) &#123;</span><br><span class="line">      <span class="comment">// 检测设置的值是不是对象</span></span><br><span class="line">      <span class="title function_">observe</span>(newVal)</span><br><span class="line">      <span class="comment">// 新值和旧值不相等的时候</span></span><br><span class="line">      <span class="keyword">if</span> (newVal !== val) &#123;</span><br><span class="line">        <span class="comment">// 覆盖掉原来的val值</span></span><br><span class="line">        val = newVal</span><br><span class="line">        <span class="comment">// 通知render函数重新渲染视图</span></span><br><span class="line">        <span class="title function_">render</span>()</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// obj.name = &#x27;lisi&#x27;</span></span><br><span class="line"><span class="comment">// obj.age = 20</span></span><br><span class="line"><span class="comment">// console.log(obj.name, obj.age);</span></span><br><span class="line"><span class="comment">// 至此 基本可以实现数据发生变化 视图更新的效果</span></span><br><span class="line"><span class="comment">// 但是 如果数据有多层呢 也就是属性对应的值也是对象?</span></span><br><span class="line"><span class="comment">// obj.phone.name = &#x27;huawei&#x27;</span></span><br><span class="line"><span class="comment">// console.log(obj.phone.name);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 修改的值和原来的值一样 不需要重新渲染视图</span></span><br><span class="line"><span class="comment">// obj.phone.name = &#x27;iphone&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果重新为对象obj的phone赋值一个新的对象呢? 视图要重新渲染</span></span><br><span class="line"><span class="comment">// obj.phone = &#123;name: &#x27;huawei&#x27;&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 并且当修改新的对象的属性值时 视图也要重新渲染</span></span><br><span class="line"><span class="comment">// obj.phone.name = &#x27;zs&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 为对象新增属性值呢? 也是没有办法监测到的</span></span><br><span class="line"><span class="comment">// obj.sex = &#x27;man&#x27;</span></span><br><span class="line"><span class="comment">// $set来解决这个</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">$myset</span>(<span class="params">obj, key, val</span>)&#123;</span><br><span class="line">  <span class="keyword">if</span>(<span class="title class_">Array</span>.<span class="title function_">isArray</span>(obj))&#123;</span><br><span class="line">    <span class="keyword">return</span> obj.<span class="title function_">splice</span>(key, val)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="title function_">defineReactive</span>(obj, key, val)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// $myset(obj, &#x27;sex&#x27;, &#x27;man&#x27;)</span></span><br><span class="line"><span class="comment">// 修改新增的属性值 视图也能更新</span></span><br><span class="line"><span class="comment">// obj.sex = &#x27;woman&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// obj.phone = Object.assign(obj.phone, &#123;price: &#x27;666&#x27;&#125;)</span></span><br><span class="line"><span class="comment">// obj.phone.price = 888</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// obj.phone = &#123;...obj.phone, ...&#123;price: &#x27;666&#x27;&#125;&#125;</span></span><br><span class="line"><span class="comment">// obj.phone.price = &#x27;888&#x27;</span></span><br><span class="line"><span class="comment">// 以后vue涉及到给data中的对象新增属性时 有三种方式</span></span><br><span class="line"><span class="comment">// 1、this.$set() || Vue.set()</span></span><br><span class="line"><span class="comment">// 2、obj = Object.assign(原对象, 新对象(新增的属性:值))</span></span><br><span class="line"><span class="comment">// 2、obj = &#123;...原对象, ...新对象(新增的属性:值)&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// =================== 数组 ======================</span></span><br><span class="line"><span class="comment">// 数组的响应式数据处理依赖的并不是Object.defineProperty 而是对数组的能够引起数据变化的方法进行重写</span></span><br><span class="line"><span class="comment">// obj.push(6)</span></span><br><span class="line"><span class="comment">// obj.length ++ </span></span><br><span class="line"><span class="comment">// obj[0] = 88</span></span><br><span class="line"><span class="comment">// $myset(obj, &#x27;0&#x27;, 66)</span></span><br></pre></td></tr></table></figure>
+<h4 id="vue3"><a href="#vue3" class="headerlink" title="vue3"></a>vue3</h4> <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">// vue3响应式原理利用了es6提供的proxy Api</span></span><br><span class="line"><span class="comment">// 可以直接监听到对象和数组内容及长度的变化</span></span><br><span class="line"><span class="comment">// 缺点: 兼容性差 支持就用proxy 不支持就用Objcet.defineProperty</span></span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;zs&#x27;</span>,</span><br><span class="line">  <span class="attr">girlFriend</span>: &#123; <span class="attr">name</span>: <span class="string">&#x27;刘亦菲&#x27;</span> &#125;,</span><br><span class="line">  <span class="attr">arr</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">render</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;视图重新渲染 ~&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> handler = &#123;</span><br><span class="line">  <span class="title function_">get</span>(<span class="params">target, key</span>) &#123;</span><br><span class="line">    <span class="comment">// Reflect.get(target, propertyKey[, receiver])</span></span><br><span class="line">    <span class="comment">// 获取对象身上某个属性的值，类似于 target[name]。</span></span><br><span class="line">    <span class="comment">// 如果属性的值是一个对象的话 则重新进行代理 设置set&amp;get</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">typeof</span> target[key] == <span class="string">&#x27;object&#x27;</span> &amp;&amp; target[key] != <span class="literal">null</span>)&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Proxy</span>(target[key], handler)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">Reflect</span>.<span class="title function_">get</span>(target, key)</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="title function_">set</span>(<span class="params">target, key, val</span>) &#123;</span><br><span class="line">    <span class="comment">// if(target[key] == &#x27;length&#x27;) return true</span></span><br><span class="line">    <span class="title class_">Reflect</span>.<span class="title function_">set</span>(target, key, val)</span><br><span class="line">    <span class="title function_">render</span>()</span><br><span class="line">    <span class="comment">// return true表示赋值成功 如果不返回true 在严格模式下可能会报TypeError</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> proxy = <span class="keyword">new</span> <span class="title class_">Proxy</span>(obj, handler)</span><br><span class="line"><span class="comment">// 使用代理后的对象</span></span><br><span class="line"><span class="comment">// console.log(proxy.name);</span></span><br><span class="line"><span class="comment">// console.log(proxy.grilFriend);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// proxy.name = &#x27;lisi&#x27;</span></span><br><span class="line"><span class="comment">// 修改深层次的对象的属性 无法监听到</span></span><br><span class="line"><span class="comment">// proxy.grilFriend.name = &#x27;黄圣依&#x27;</span></span><br><span class="line"><span class="comment">// console.log(proxy.name);</span></span><br><span class="line"><span class="comment">// console.log(proxy.grilFriend);</span></span><br><span class="line"><span class="comment">// console.log(obj.name);</span></span><br><span class="line"><span class="comment">// console.log(obj.grilFriend);</span></span><br><span class="line"></span><br><span class="line">proxy.<span class="property">arr</span>[<span class="number">0</span>] = <span class="string">&#x27;11&#x27;</span></span><br><span class="line">proxy.<span class="property">arr</span>.<span class="property">length</span> ++</span><br><span class="line"><span class="comment">// console.log(proxy.arr.length);</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">arr</span>.<span class="property">length</span>);</span><br></pre></td></tr></table></figure>
+
+</article>
+    
+    <div class="trm-reward">
+        
+            <span class="trm-reward-btn trm-glow" onclick='var qr = document.getElementById("qr"); qr.style.display = (qr.style.display === "none") ? "block" : "none";'>
+                <i class="iconfont fas fa-hand-holding-usd"></i>
+            </span>
+        
+        <p class="trm-reward-comment">I'm so cute. Please give me money.</p>
+        <div id="qr" style="display:none;">
+            
+                <div style="display:inline-block">
+                    <a rel="noopener noreferrer" href='二维码地址' target='_blank' >
+                       <img src="/%E4%BA%8C%E7%BB%B4%E7%A0%81%E5%9C%B0%E5%9D%80" alt="支付宝" loading="lazy">
+                    </a>
+                    <p>支付宝</p>
+                </div>
+            
+        </div>
+    </div>
+
+    
+</div>
+<div id="post-next-prev" class="row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            其他文章
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+        <div class="col-lg-6">
+    <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
+        <a href="/2019/10/19/React/" class="trm-cover-frame trm-anima-link">
+            
+            
+                <img alt="cover" class="no-fancybox" src="/../image/react.png">
+            
+        </a>
+        
+        <div class="trm-card-descr">
+            <div class="trm-label trm-category trm-mb-20">
+                <a href=" #.">
+                    未分类
+                </a>
+            </div>
+            <h5>
+                <a href="/2019/10/19/React/" class="trm-anima-link">
+                    React
+                </a>
+            </h5>
+            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>19/10/19</li>
+                <li>10:46</li>
+                
+                    <li>1.5k</li>
+                
+                
+                    <li>7</li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
+        <a href="/2019/10/15/vue/" class="trm-cover-frame trm-anima-link">
+            
+            
+                <img alt="cover" class="no-fancybox" src="/../image/vue.jpg">
+            
+        </a>
+        
+        <div class="trm-card-descr">
+            <div class="trm-label trm-category trm-mb-20">
+                <a href=" #.">
+                    未分类
+                </a>
+            </div>
+            <h5>
+                <a href="/2019/10/15/vue/" class="trm-anima-link">
+                    vue2内容
+                </a>
+            </h5>
+            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>19/10/15</li>
+                <li>10:46</li>
+                
+                    <li>15.1k</li>
+                
+                
+                    <li>70</li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-scroll-animation" data-scroll data-scroll-offset="50">
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>© 2020- 2023</span>
+            <span class="footer-separator"data-separator=" · "></span>
+            <span class="trm-accent-color">周贺涛的博客</span>
+        </div>
+    
+
+      
+
+     
+
+     
+</footer>
+ 
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            <div class="trm-fixed-container" data-scroll data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="-10">
+    
+        <div class="trm-fixed-btn" data-title="阅读模式" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="回到顶部">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+          </div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+
+  </div>
+  <!-- app wrapper end -->
+
+  
+<div class="trm-search-popup">
+    <div class="trm-search-header">
+        <span class="trm-search-popup-btn-close">
+            <i class="iconfont fas fa-times"></i>
+        </span>
+    </div>
+    <div class="form trm-search-form">
+        <input class="trm-search-input" type="text" placeholder="搜索...">
+    </div>
+    <div class="trm-search-result-container">
+
+    </div>
+</div>
+
+  <!-- Plugin -->
+
+
+
+
+    
+    
+<script src="https://unpkg.com/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+
+    
+<script src="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+
+    
+        
+<script src="https://unpkg.com/hexo-generator-searchdb@1.4.0/dist/search.js"></script>
+
+        <script src="/js/plugins/local_search.js?v=2.0.4"></script>
+    
+
+    <!-- 数学公式 -->
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+    
+
+
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+
+    <!-- Service Worker -->
+    
+    <!-- baidu push -->
+    
+
+
+<script id="async-script" src="/js/main.js?v=2.0.4"></script>
+
+</body>
+
+</html>
