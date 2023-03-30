@@ -15,7 +15,7 @@
 <meta property="og:description" content="官网介绍关于 Nuxt.js 2016 年 10 月 25 日，zeit.co 背后的团队对外发布了 Next.js，一个 React 的服务端渲染应用框架。几小时后，与 Next.js 异曲同工，一个基于 Vue.js 的服务端渲染应用框架应运而生，我们称之为：Nuxt.js。 Nuxt.js 是什么？Nuxt.js 是一个基于 Vue.js 的通用应用框架。 通过对客户端&#x2F;服务端基">
 <meta property="og:locale">
 <meta property="article:published_time" content="2019-10-22T02:46:27.000Z">
-<meta property="article:modified_time" content="2023-03-30T03:53:35.896Z">
+<meta property="article:modified_time" content="2023-03-30T04:03:11.471Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -65,7 +65,7 @@
 
 <!-- Variable -->
 <script>window.ASYNC_CONFIG = {"hostname":"example.com","author":null,"root":"/","typed_text":null,"theme_version":"2.0.4","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"https://img2.baidu.com/it/u=3425801665,2370274849&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500","icon16":"favicon-16x16.png","icon32":"favicon-32x32.png","appleTouchIcon":"apple-touch-icon.png","webmanifest":"/site.webmanifest","visibilitychange":true,"hidden":"failure.ico","showText":"(/≧▽≦/)咦！又好了！","hideText":"(●—●)喔哟，崩溃啦！"},"i18n":{"placeholder":"搜索...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":200},"search":{"enable":true,"type":"local","href":"https://www.google.com/search?q=site:","domain":"www.hetao.asia","path":"search.xml"}};</script>
-<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2023-03-30 11:53:35"};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2023-03-30 12:03:11"};</script>
 
 <!-- Theme mode css -->
 <link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.0.4" id="trm-switch-style">
@@ -265,7 +265,17 @@
 <div class="trm-main-card-frame trm-sidebar">
     <div class="trm-main-card" data-scroll data-scroll-repeat data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="60"> 
     
-        <!-- card header -->
+        <div class="trm-user-tabs" id="sidebar-tabs">
+           <div class="trm-tabs-nav trm-mb-40" id="trm-tabs-nav">
+                <div data-to="tabs-user" class="trm-tabs-nav-item">
+                    <i class="iconfont fas fa-user-alt"></i>
+                </div>
+                <div data-to="tabs-toc" class="trm-tabs-nav-item active">
+                    <i class="iconfont fas fa-th-list"></i>
+                </div>
+           </div>
+            <div name="tabs-user" class="trm-tabs-item">
+                <!-- card header -->
 <div class="trm-mc-header">
     <div class="trm-avatar-frame trm-mb-20">
         <img alt="Avatar" class="trm-avatar" src="/img/avatar.jpg">
@@ -276,7 +286,7 @@
     
 </div>
 <!-- card header end -->
-        <!-- sidebar social -->
+                <!-- sidebar social -->
 
 <div class="trm-divider trm-mb-40 trm-mt-40"></div>
 <div class="trm-social">
@@ -292,7 +302,7 @@
 </div>
 
 <!-- sidebar social end -->
-        <!-- info -->
+                <!-- info -->
 <div class="trm-divider trm-mb-40 trm-mt-40"></div>
 <ul class="trm-table trm-mb-20">
     
@@ -317,7 +327,7 @@
 </ul>
 <!-- info end -->
 
-        
+                
     <div class="trm-divider trm-mb-40 trm-mt-40"></div>
     <!-- action button -->
     <div class="text-center">
@@ -328,6 +338,13 @@
     </div>
     <!-- action button end -->
 
+            </div>
+            <div name="tabs-toc" class="trm-tabs-item active">
+                <div class="post-toc">
+    <ol class="toc"><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#官网介绍"  data-scroll-to="#官网介绍"><span class="toc-number">1.</span> <span class="toc-text">官网介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a rel="nofollow" class="toc-link" href="#关于-Nuxt-js"  data-scroll-to="#关于-Nuxt-js"><span class="toc-number">1.1.</span> <span class="toc-text">关于 Nuxt.js</span></a></li><li class="toc-item toc-level-4"><a rel="nofollow" class="toc-link" href="#Nuxt-js-是什么？"  data-scroll-to="#Nuxt-js-是什么？"><span class="toc-number">1.2.</span> <span class="toc-text">Nuxt.js 是什么？</span></a></li></ol></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#Nuxtjs特性"  data-scroll-to="#Nuxtjs特性"><span class="toc-number">2.</span> <span class="toc-text">Nuxtjs特性</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#Nuxtjs-和-Vue的区别"  data-scroll-to="#Nuxtjs-和-Vue的区别"><span class="toc-number">3.</span> <span class="toc-text">Nuxtjs 和 Vue的区别</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#安装"  data-scroll-to="#安装"><span class="toc-number">4.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#目录结构"  data-scroll-to="#目录结构"><span class="toc-number">5.</span> <span class="toc-text">目录结构</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#路由"  data-scroll-to="#路由"><span class="toc-number">6.</span> <span class="toc-text">路由</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a rel="nofollow" class="toc-link" href="#举例"  data-scroll-to="#举例"><span class="toc-number">6.1.</span> <span class="toc-text">举例</span></a></li><li class="toc-item toc-level-4"><a rel="nofollow" class="toc-link" href="#动态路由"  data-scroll-to="#动态路由"><span class="toc-number">6.2.</span> <span class="toc-text">动态路由</span></a></li></ol></li></ol>
+</div>
+            </div>
+        </div>
     
     </div>
 </div>
